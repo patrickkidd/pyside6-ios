@@ -1,0 +1,24 @@
+# Build artifacts (all regeneratable)
+build/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Xcode
+*.xcuserdata
+xcuserdata/
+DerivedData/
+
+# Logs
+aqtinstall.log
+
+# IDE
+.vscode/
+
+# Claude Code local settings
+.claude/settings.local.json

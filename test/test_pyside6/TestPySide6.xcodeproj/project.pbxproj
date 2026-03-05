@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1000001 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = B2000001; };
+		B1000002 /* main.qml in Resources */ = {isa = PBXBuildFile; fileRef = B2000002; };
+		B1000003 /* QtRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000003; };
+		B1000004 /* QtRuntime.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2000003; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1000005 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000005; };
+		B1000006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000006; };
+		B1000007 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000007; };
+		B1000008 /* Python.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2000007; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B100000A /* libPySide6_QtCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B200000B; };
+		B100000B /* shiboken_module_wrapper.o in Frameworks */ = {isa = PBXBuildFile; fileRef = B200000C; };
+		B100000C /* libPySide6_QtGui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B200000D; };
+		B100000D /* libPySide6_QtNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B200000E; };
+		B100000E /* libPySide6_QtQml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B200000F; };
+		B100000F /* libPySide6_QtQuick.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000010; };
+		B1000010 /* libpysideqml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000011; };
+		B1000011 /* libshiboken6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000012; };
+		B1000012 /* libpyside6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2000013; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5000001 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1000004 /* QtRuntime.framework in Embed Frameworks */,
+				B1000008 /* Python.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5000002 /* Copy QML Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 1;
+			files = (
+				B1000002 /* main.qml in Resources */,
+			);
+			name = "Copy QML Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5000003 /* Copy QML Modules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy QML Modules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "QT_IOS=\"$HOME/dev/lib/Qt-6/6.8.3/ios\"\nmkdir -p \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml\"\nfor mod in QtQuick QtQml QtCore; do\n    if [ -d \"$QT_IOS/qml/$mod\" ]; then\n        cp -R \"$QT_IOS/qml/$mod\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml/\"\n    fi\ndone\n";
+		};
+		B5000004 /* Copy Python Stdlib */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Python Stdlib";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "PYXCFW=\"$PROJECT_DIR/../../build/python/Python.xcframework\"\nAPP=\"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app\"\n# Shared stdlib\nmkdir -p \"$APP/lib/python3.13\"\nrsync -a \"$PYXCFW/lib/python3.13/\" \"$APP/lib/python3.13/\"\n# Platform-specific C extensions\nif [ -d \"$PYXCFW/ios-arm64/lib-arm64/python3.13/lib-dynload\" ]; then\n    mkdir -p \"$APP/lib/python3.13/lib-dynload\"\n    cp -R \"$PYXCFW/ios-arm64/lib-arm64/python3.13/lib-dynload/\"*.so \"$APP/lib/python3.13/lib-dynload/\"\n    # Sign all .so files for iOS\n    for so in \"$APP/lib/python3.13/lib-dynload/\"*.so; do\n        /usr/bin/codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" --timestamp=none \"$so\"\n    done\nfi\n";
+		};
+		B5000005 /* Copy Python Scripts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Python Scripts";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "APP=\"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app\"\nmkdir -p \"$APP/scripts\"\ncp -R \"$PROJECT_DIR/scripts/\"*.py \"$APP/scripts/\"\n# Copy PySide6/shiboken6 packages\nmkdir -p \"$APP/packages/PySide6\"\nmkdir -p \"$APP/packages/shiboken6\"\ncp -R \"$PROJECT_DIR/packages/PySide6/\"*.py \"$APP/packages/PySide6/\"\ncp -R \"$PROJECT_DIR/packages/shiboken6/\"*.py \"$APP/packages/shiboken6/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B2000001 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		B2000002 /* main.qml */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.qml; sourceTree = "<group>"; };
+		B2000003 /* QtRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtRuntime.framework; path = ../../build/QtRuntime.framework; sourceTree = "<group>"; };
+		B2000004 /* TestPySide6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPySide6.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2000005 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2000006 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2000007 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = ../../build/python/Python.xcframework/ios-arm64/Python.framework; sourceTree = "<group>"; };
+		B2000008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2000009 /* qtbridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = qtbridge.mm; sourceTree = "<group>"; };
+		B200000A /* qtbridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qtbridge.h; sourceTree = "<group>"; };
+		B200000B /* libPySide6_QtCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPySide6_QtCore.a; path = ../../build/pyside6-ios-static/libPySide6_QtCore.a; sourceTree = "<group>"; };
+		B200000C /* shiboken_module_wrapper.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = shiboken_module_wrapper.o; path = ../../build/shiboken-ios/shiboken_module_wrapper.o; sourceTree = "<group>"; };
+		B200000D /* libPySide6_QtGui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPySide6_QtGui.a; path = ../../build/pyside6-ios-static/libPySide6_QtGui.a; sourceTree = "<group>"; };
+		B200000E /* libPySide6_QtNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPySide6_QtNetwork.a; path = ../../build/pyside6-ios-static/libPySide6_QtNetwork.a; sourceTree = "<group>"; };
+		B200000F /* libPySide6_QtQml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPySide6_QtQml.a; path = ../../build/pyside6-ios-static/libPySide6_QtQml.a; sourceTree = "<group>"; };
+		B2000010 /* libPySide6_QtQuick.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPySide6_QtQuick.a; path = ../../build/pyside6-ios-static/libPySide6_QtQuick.a; sourceTree = "<group>"; };
+		B2000011 /* libpysideqml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpysideqml.a; path = ../../build/libpysideqml-ios/libpysideqml.a; sourceTree = "<group>"; };
+		B2000012 /* libshiboken6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libshiboken6.a; path = ../../build/libshiboken-ios/libshiboken6.a; sourceTree = "<group>"; };
+		B2000013 /* libpyside6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpyside6.a; path = ../../build/libpyside-ios/libpyside6.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000003 /* QtRuntime.framework in Frameworks */,
+				B1000007 /* Python.framework in Frameworks */,
+				B1000005 /* UIKit.framework in Frameworks */,
+				B1000006 /* Foundation.framework in Frameworks */,
+				B100000A /* libPySide6_QtCore.a in Frameworks */,
+				B100000B /* shiboken_module_wrapper.o in Frameworks */,
+				B100000C /* libPySide6_QtGui.a in Frameworks */,
+				B100000D /* libPySide6_QtNetwork.a in Frameworks */,
+				B100000E /* libPySide6_QtQml.a in Frameworks */,
+				B100000F /* libPySide6_QtQuick.a in Frameworks */,
+				B1000010 /* libpysideqml.a in Frameworks */,
+				B1000011 /* libshiboken6.a in Frameworks */,
+				B1000012 /* libpyside6.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4000001 = {
+			isa = PBXGroup;
+			children = (
+				B2000001 /* main.mm */,
+				B2000002 /* main.qml */,
+				B2000008 /* Info.plist */,
+				B4000002 /* Frameworks */,
+				B4000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4000002 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2000003 /* QtRuntime.framework */,
+				B2000007 /* Python.framework */,
+				B200000B /* libPySide6_QtCore.a */,
+				B200000C /* shiboken_module_wrapper.o */,
+				B200000D /* libPySide6_QtGui.a */,
+				B200000E /* libPySide6_QtNetwork.a */,
+				B200000F /* libPySide6_QtQml.a */,
+				B2000010 /* libPySide6_QtQuick.a */,
+				B2000011 /* libpysideqml.a */,
+				B2000012 /* libshiboken6.a */,
+				B2000013 /* libpyside6.a */,
+				B2000005 /* UIKit.framework */,
+				B2000006 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2000004 /* TestPySide6.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6000001 /* TestPySide6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8000003 /* Build configuration list for PBXNativeTarget "TestPySide6" */;
+			buildPhases = (
+				B7000001 /* Sources */,
+				B3000001 /* Frameworks */,
+				B5000001 /* Embed Frameworks */,
+				B5000002 /* Copy QML Files */,
+				B5000003 /* Copy QML Modules */,
+				B5000004 /* Copy Python Stdlib */,
+				B5000005 /* Copy Python Scripts */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestPySide6;
+			productName = TestPySide6;
+			productReference = B2000004 /* TestPySide6.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B6000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B8000001 /* Build configuration list for PBXProject "TestPySide6" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4000001;
+			productRefGroup = B4000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6000001 /* TestPySide6 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000001 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B8000011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_ARC = YES;
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8000012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_ARC = YES;
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B8000021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8KJB799CU7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../build",
+					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/include",
+					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64/include/python3.13",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../build/pyside6-ios-static",
+					"$(PROJECT_DIR)/../../build/shiboken-ios",
+					"$(PROJECT_DIR)/../../build/libpysideqml-ios",
+					"$(PROJECT_DIR)/../../build/libshiboken-ios",
+					"$(PROJECT_DIR)/../../build/libpyside-ios",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-iframework",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/lib",
+				);
+				OTHER_LDFLAGS = (
+				);
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alaskafamilysystems.test-pyside6";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B8000022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8KJB799CU7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../build",
+					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/include",
+					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64/include/python3.13",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../build/pyside6-ios-static",
+					"$(PROJECT_DIR)/../../build/shiboken-ios",
+					"$(PROJECT_DIR)/../../build/libpysideqml-ios",
+					"$(PROJECT_DIR)/../../build/libshiboken-ios",
+					"$(PROJECT_DIR)/../../build/libpyside-ios",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-iframework",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/lib",
+				);
+				OTHER_LDFLAGS = (
+				);
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alaskafamilysystems.test-pyside6";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8000001 /* Build configuration list for PBXProject "TestPySide6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8000011 /* Debug */,
+				B8000012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8000003 /* Build configuration list for PBXNativeTarget "TestPySide6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8000021 /* Debug */,
+				B8000022 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = B9000001 /* Project object */;
+}
