@@ -41,8 +41,13 @@ cross-compiled via `build_pyside6_module.sh`. If you find a module that hasn't
 been cross-compiled yet, build it before proceeding.
 
 ```toml
+# QML app:
 [pyside6]
 modules = ["QtCore", "QtGui", "QtNetwork", "QtQml", "QtQuick"]
+
+# QtWidgets app:
+[pyside6]
+modules = ["QtCore", "QtGui", "QtWidgets"]
 ```
 
 
@@ -100,14 +105,13 @@ packages = [
 Create `scripts/app.py`. This is what `main.mm` runs via `PyRun_SimpleFile`.
 It must:
 1. Import your app's main module
-2. Get the existing `QGuiApplication` instance (created by `main.mm`)
-3. Set up the QML engine and load your root QML file
+2. Get the existing application instance (created by `main.mm`)
+3. Set up the UI (QML engine or QtWidgets)
+
+**QML app:**
 
 ```python
-import sys
-import os
-
-# The bundle path is one level up from scripts/
+import sys, os
 bundle = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from PySide6.QtCore import QUrl
@@ -115,15 +119,21 @@ from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
 app = QGuiApplication.instance()
-
 engine = QQmlApplicationEngine()
 engine.addImportPath(os.path.join(bundle, "qml"))
+engine.load(QUrl.fromLocalFile(os.path.join(bundle, "qml", "main.qml")))
+```
 
-qml_path = os.path.join(bundle, "qml", "main.qml")
-engine.load(QUrl.fromLocalFile(qml_path))
+**QtWidgets app:**
 
-if not engine.rootObjects():
-    print("ERROR: QML failed to load", file=sys.stderr)
+```python
+import sys, os
+from PySide6.QtWidgets import QApplication, QMainWindow, QTabWidget
+
+app = QApplication.instance()
+win = QMainWindow()
+# ... build your widget UI ...
+win.showFullScreen()  # NOT win.show() — see iOS pitfalls below
 ```
 
 ```toml
@@ -132,7 +142,9 @@ scripts = ["scripts/app.py"]
 ```
 
 
-## Step 6: QML files
+## Step 6: QML files (QML apps only)
+
+Skip this step for QtWidgets-only apps — omit the `[qml]` section entirely.
 
 Copy or symlink your QML directory. List the Qt QML modules your QML imports:
 
@@ -401,6 +413,7 @@ main-mm = "main.mm"
 ```
 
 You need a custom `main.mm` when:
+- **Your app uses QtWidgets** (must use `QApplication` instead of `QGuiApplication`)
 - Your app needs custom ObjC++ initialization (e.g., `qputenv` for QML style)
 - You have app-specific Qt setup before Python runs
 - You need to handle multiple entry points or configurations
@@ -480,10 +493,11 @@ Xcode's Run (Cmd+R) is the easiest option — it builds, installs, launches, and
 shows console output in the debug console.
 
 
-## Complete Example: Complex App
+## Complete Example: Complex QML App
 
 This config exercises every feature. Modeled on a real production app with QML
-UI, custom C++ bindings, vendor deps, resource bundles, and CI signing:
+UI, custom C++ bindings, vendor deps, resource bundles, and CI signing.
+For a QtWidgets example, see `test/test_widgets/pyside6-ios.toml`.
 
 ```toml
 [app]
@@ -604,6 +618,38 @@ Verify:
 1. `engine.addImportPath(os.path.join(bundle, "qml"))` in your entry script
 2. QML files are in a `dirs` entry under `[qml]`
 3. Qt QML modules are listed in `qt-modules`
+
+### QtWidgets: blank screen or tiny window
+
+On iOS, `QMainWindow.show()` does not fill the screen — Qt doesn't own the
+display in the qt-inside-ios-native pattern. Use `win.showFullScreen()` instead.
+The host `main.mm` also resizes top-level QWidgets after reparenting the Qt view
+into the iOS UIWindow. See `test/test_widgets/main.mm` for the pattern.
+
+### QtWidgets: layouts not working (widgets scrunched to upper-left)
+
+**Critical iOS PySide6 bug:** `QLayout(parent)` constructor calls silently fail
+to attach the layout to the parent widget when PySide6 modules are statically
+linked. This affects all layout types (`QVBoxLayout`, `QHBoxLayout`,
+`QGridLayout`, `QFormLayout`).
+
+**Do not use:**
+```python
+layout = QVBoxLayout(self)      # BROKEN on iOS static PySide6
+g = QGridLayout(groupBox)       # BROKEN on iOS static PySide6
+```
+
+**Use instead:**
+```python
+layout = QVBoxLayout()
+self.setLayout(layout)          # explicit setLayout works correctly
+
+g = QGridLayout()
+groupBox.setLayout(g)           # explicit setLayout works correctly
+```
+
+This applies to every widget that needs a layout, including QGroupBox,
+QScrollArea inner widgets, and any custom QWidget subclass.
 
 ### xcodebuild: scheme not found
 

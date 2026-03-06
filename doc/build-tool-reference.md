@@ -100,7 +100,7 @@ unless absolute or `~`-prefixed.
 
 | Key | Description |
 |-----|-------------|
-| `modules` | List of PySide6 modules to link (e.g., `["QtCore", "QtGui", "QtQml", "QtQuick"]`) |
+| `modules` | List of PySide6 modules to link (e.g., `["QtCore", "QtGui", "QtWidgets"]` or `["QtCore", "QtGui", "QtQml", "QtQuick"]`) |
 
 Each module must have a corresponding `libPySide6_<Module>.a` in
 `<pyside6-ios>/build/pyside6-ios-static/`. Build these with
@@ -170,6 +170,18 @@ When `main-mm` is empty, the tool generates a complete `main.mm` that:
 - Adds search paths for scripts, packages, and vendor
 - Creates `QGuiApplication`, runs the entry script, reparents Qt's view into
   a UIWindowScene-aware UIWindow
+
+**QtWidgets apps require a custom `main.mm`** because the auto-generated
+template creates `QGuiApplication`, while QtWidgets needs `QApplication`.
+Copy the generated `main.mm` and change `QGuiApplication` to `QApplication`
+(with `#include <QtWidgets/QApplication>`). The custom `main.mm` must also
+resize top-level QWidgets after reparenting to fill the iOS screen. See
+`test/test_widgets/main.mm` for a working example.
+
+**QtWidgets entry scripts must use `showFullScreen()`** instead of `show()`.
+Also note: `QLayout(parent)` constructors silently fail on iOS static PySide6 —
+always use explicit `widget.setLayout(layout)`. See the porting cookbook
+troubleshooting section for details.
 
 When `main-mm` is set, the file is copied as-is. You must handle all of the
 above yourself. Use the generated version as a starting template.

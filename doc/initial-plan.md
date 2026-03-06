@@ -63,11 +63,19 @@ YourApp.app/
 - [x] Successfully import PySide6.QtCore and use QUrl, QPoint, QSize on iPhone
 - [x] QML UI displays PySide6 version info
 
-### M5: Full PySide6 app on iPhone [DONE — 2026-03-05]
+### M5: Full PySide6 QML app on iPhone [DONE — 2026-03-05]
 - [x] Cross-compile PySide6 QtGui, QtNetwork, QtQml, QtQuick for iOS arm64
 - [x] Python script creates QGuiApplication and loads QML directly (no qtbridge)
 - [x] Remove qtbridge dependency — PySide6 drives everything
 - [x] QML UI renders and responds to touch on physical iPhone
+
+### M6: Full PySide6 QtWidgets app on iPhone [DONE — 2026-03-06]
+- [x] Add QtWidgets case to build_pyside6_module.sh (include paths, setAsDockMenu iOS patch)
+- [x] Cross-compile PySide6 QtWidgets for iOS arm64 (194/194 wrappers, 17M)
+- [x] Custom main.mm using QApplication (not QGuiApplication)
+- [x] 10-tab widget showcase: buttons, input, sliders, lists, containers, QGraphicsView, calendar, dialogs, custom QPainter, info
+- [x] Same native C++/Obj-C/shiboken binding pattern as QML demo
+- [x] Build tool generates and builds Xcode project with zero changes to build tool code
 
 ## Key Design Decisions
 

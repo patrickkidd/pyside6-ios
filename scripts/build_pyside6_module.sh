@@ -84,6 +84,21 @@ case "$MODULE" in
             -I "$PYSIDE6_SRC/QtQuick")
         EXTRA_SOURCES+=("$PYSIDE6_SRC/QtQuick/pysidequickregistertype.cpp")
         ;;
+    QtWidgets)
+        TYPESYSTEM_XML="$PYSIDE6_SRC/QtWidgets/typesystem_widgets.xml"
+        EXTRA_INCLUDE_DIRS+=("$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" "$GEN_DIR")
+        EXTRA_CXXFLAGS+=(\
+            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
+            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            -I "$QT_IOS/lib/QtGui.framework/Headers" \
+            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3" \
+            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3/QtGui" \
+            -I "$QT_IOS/lib/QtNetwork.framework/Headers" \
+            -I "$QT_IOS/lib/QtWidgets.framework/Headers" \
+            -I "$QT_IOS/lib/QtWidgets.framework/Headers/6.8.3" \
+            -I "$QT_IOS/lib/QtWidgets.framework/Headers/6.8.3/QtWidgets")
+        ;;
     *) echo "Unknown module: $MODULE"; exit 1 ;;
 esac
 
@@ -105,7 +120,7 @@ POST_HEADER="$PYSIDE6_SRC/$MODULE/${MODULE}_global.post.h.in"
 echo "==> Phase 2: Running shiboken6 for $MODULE"
 mkdir -p "$GEN_DIR"
 SHIBOKEN_INCLUDES="$PYSIDE6_SRC:$QT_MACOS/include"
-for dep in QtCore QtGui QtNetwork QtQml QtQuick QtOpenGL; do
+for dep in QtCore QtGui QtWidgets QtNetwork QtQml QtQuick QtOpenGL; do
     FW="$QT_MACOS/lib/$dep.framework/Headers"
     [ -d "$FW" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW"
     [ -d "$FW/6.8.3" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW/6.8.3"
@@ -142,6 +157,21 @@ for func in ['defaultDtlsConfiguration','dtlsCookieVerificationEnabled','setDefa
     code = re.sub(rf'static PyObject \*Sbk_QSslConfigurationFunc_{func}\(.*?\n\}}\n', '', code, flags=re.DOTALL)
     code = re.sub(rf'.*Sbk_QSslConfigurationFunc_{func}.*\n', '', code)
 with open('$SSLCONF','w') as f: f.write(code)
+"
+    fi
+fi
+
+if [ "$MODULE" = "QtWidgets" ]; then
+    QMENU="$GEN_DIR/qmenu_wrapper.cpp"
+    if [ -f "$QMENU" ] && grep -q "setAsDockMenu" "$QMENU"; then
+        echo "    Patching macOS-only setAsDockMenu..."
+        python3 -c "
+import re
+with open('$QMENU') as f: code = f.read()
+# Remove the setAsDockMenu method body and method table entry
+code = re.sub(r'static PyObject \*Sbk_QMenuFunc_setAsDockMenu\(.*?\n\}\n', '', code, flags=re.DOTALL)
+code = re.sub(r'.*Sbk_QMenuFunc_setAsDockMenu.*\n', '', code)
+with open('$QMENU','w') as f: f.write(code)
 "
     fi
 fi

@@ -43,7 +43,22 @@ Maintain `decisions/log.md`. **Triggers**: "I've decided...", "I'm going to...",
 
 - `doc/pyside6-ios-solution.md` — Original project context: problem statement, solution architecture, and rationale for the QtRuntime.framework approach
 - `doc/build-tool-reference.md` — Build tool config reference, commands, bundle layout, build phases
-- `doc/porting-cookbook.md` — Step-by-step guide for porting an existing PySide6 app to iOS
+- `doc/porting-cookbook.md` — Step-by-step guide for porting an existing PySide6 app to iOS (QML or QtWidgets)
+- `doc/initial-plan.md` — Milestone progression (M1–M6), key design decisions, risk register
+
+## Cross-Compiled PySide6 Modules
+
+Available in `build/pyside6-ios-static/`:
+- QtCore, QtGui, QtWidgets, QtNetwork, QtQml, QtQuick
+
+To add a new module, add a case to `scripts/build_pyside6_module.sh` and run it. iOS-specific patches may be needed (e.g., `setAsDockMenu` stripped from QtWidgets, DTLS stripped from QtNetwork).
+
+## Demo Apps
+
+- `test/test_pyside6/` — QML demo (QtCore + QtGui + QtNetwork + QtQml + QtQuick)
+- `test/test_widgets/` — QtWidgets demo (QtCore + QtGui + QtWidgets)
+
+Both exercise: custom C++ (Q_OBJECT + MOC), Obj-C++ (deviceinfo), shiboken6 bindings (AppState), Python virtual overrides, and the build tool. The QtWidgets demo requires a custom `main.mm` because the auto-generated template uses `QGuiApplication` (QML) rather than `QApplication` (widgets).
 
 ## Development Rules
 

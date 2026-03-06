@@ -1,0 +1,128 @@
+******************
+Not in type system
+******************
+
+ - AppState::QPrivateSignal
+ - QAbstractConcatenable
+ - QArgument
+ - QArrayData
+ - QArrayDataOps
+ - QArrayDataPointer
+ - QAtomicAdditiveType
+ - QAtomicInt
+ - QAtomicInteger
+ - QAtomicOps
+ - QAtomicOpsSupport
+ - QAtomicPointer
+ - QAtomicTraits
+ - QBaseIterator
+ - QBasicAtomicInteger
+ - QBasicAtomicPointer
+ - QBasicUtf8StringView
+ - QBindingStatus
+ - QBindingStorage
+ - QConcatenable
+ - QConstIterator
+ - QConstOverload
+ - QFlag
+ - QFlags
+ - QGlobalStatic
+ - QHashHeterogeneousSearch
+ - QIncompatibleFlag
+ - QIntegerForSize
+ - QIntegerForSizeof
+ - QInternal
+ - QIterable
+ - QIterator
+ - QKeyValueIterator
+ - QLatin1Char
+ - QList::DisableRValueRefs
+ - QList::const_iterator
+ - QList::iterator
+ - QListIterator
+ - QListSpecialMethods
+ - QListSpecialMethodsBase
+ - QMessageLogger
+ - QMetaAssociation
+ - QMetaContainer
+ - QMetaMethodArgument
+ - QMetaMethodReturnArgument
+ - QMetaObject::Data
+ - QMetaObject::SuperData
+ - QMetaSequence
+ - QMetaTypeId
+ - QMetaTypeId2
+ - QMetaTypeIdQObject
+ - QMethodRawArguments
+ - QMutableListIterator
+ - QNonConstOverload
+ - QObject::QPrivateSignal
+ - QObjectData
+ - QOverload
+ - QPartialOrdering
+ - QReturnArgument
+ - QScopeGuard
+ - QScopedArrayPointer
+ - QScopedPointer
+ - QScopedPointerArrayDeleter
+ - QScopedPointerDeleter
+ - QScopedPointerObjectDeleteLater
+ - QScopedPointerPodDeleter
+ - QStringBuilder
+ - QStringBuilderBase
+ - QStringBuilderCommon
+ - QStringConverter::Interface
+ - QStringConverterBase::State::(anonymous union at /Users/patrick/dev/lib/Qt-6/6.8.3/macos/lib/QtCore.framework/Headers/qstringconverter_base.h:73:9)
+ - QStringDecoder::EncodedData
+ - QStringEncoder::DecodedData
+ - QStringMatcher
+ - QStringTokenizer
+ - QStringTokenizerBase
+ - QStringTokenizerBaseBase
+ - QTaggedIterator
+ - QTaggedPointer
+ - QTemplatedMetaMethodReturnArgument
+ - QTypeInfo
+ - QTypeInfoMerger
+ - QTypedArrayData
+ - Qt::Disambiguated_t
+ - Qt::partial_ordering
+ - Qt::strong_ordering
+ - Qt::totally_ordered_wrapper
+ - Qt::weak_ordering
+ - fd_set
+ - qfloat16
+ - timespec
+
+**********************************
+Generation disabled by type system
+**********************************
+
+ - QAlgorithmsPrivate
+ - QContainerInfo
+ - QHashPrivate
+ - QTypeTraits
+ - Qt::Literals
+ - QtGlobalStatic
+ - QtLiterals
+ - QtMetaContainerPrivate
+ - QtMetaTypePrivate
+ - QtOrderingPrivate: /Users/patrick/dev/lib/Qt-6/6.8.3/macos/lib/QtCore.framework/Headers/qcompare.h:51:	namespace 'QtOrderingPrivate' does not have a type entry (type systems: AppStateBindings, PySide6.QtCore)
+ - QtPrivate
+ - QtStringBuilder
+ - q20
+ - q_has_char8_t
+ - q_no_char8_t
+ - qxp
+ - std: /Users/patrick/dev/lib/Qt-6/6.8.3/macos/lib/QtCore.framework/Headers/qcomparehelpers.h:909:	namespace 'std' does not have a type entry (type systems: AppStateBindings, PySide6.QtCore)
+
+********************************
+Type redefined to not be a class
+********************************
+
+ - QAnyStringView
+ - QByteArrayView
+ - QChar
+ - QLatin1String
+ - QString
+ - QStringView

@@ -1,0 +1,50 @@
+[app]
+name = "TestWidgets"
+bundle-id = "com.alaskafamilysystems.test-widgets"
+version = "1.0"
+entry-point = ""
+team-id = "8KJB799CU7"
+deployment-target = "16.0"
+
+[paths]
+pyside6-ios = "../.."
+qt-ios = "~/dev/lib/Qt-6/6.8.3/ios"
+output-dir = "generated"
+
+[pyside6]
+modules = ["QtCore", "QtGui", "QtWidgets"]
+
+[python]
+packages = [
+    { src = "myapp", exclude = ["*.pyc", "__pycache__"] },
+]
+scripts = ["scripts/app.py"]
+
+[resources]
+assets = "Assets.xcassets"
+
+[sources]
+main-mm = "main.mm"
+files = ["native/deviceinfo.mm", "native/appstate.cpp"]
+header-search-paths = ["native"]
+
+[bindings]
+modules = [
+    { name = "AppStateBindings", headers = ["native/appstate.h"], typesystem = "native/typesystem_appstate.xml" },
+]
+
+[info-plist]
+file = "Info.plist"
+
+[entitlements]
+file = "Entitlements.plist"
+
+[signing]
+style = "Automatic"
+
+[build-settings]
+CLANG_ENABLE_MODULES = "YES"
+
+[defines]
+common = ["DEMO_APP=1"]
+debug = ["DEBUG=1"]
