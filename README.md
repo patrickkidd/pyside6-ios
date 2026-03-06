@@ -98,6 +98,8 @@ The report covers these in depth, but briefly:
   built-in module names
 - **Metatype instantiations** — extern templates in `qmetatype.h` need explicit
   local instantiations to avoid arm64 linker errors
+- **QProcess exclusion** — `QT_CONFIG(process)` is false on iOS; generated
+  wrappers and headers need patching
 - **qt-inside-ios-native** — host app owns `UIApplicationMain`; Qt uses
   `QIOSEventDispatcher` (non-jumping) to integrate with `CFRunLoop`
 

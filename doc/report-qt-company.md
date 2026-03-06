@@ -261,7 +261,20 @@ template struct QMetaTypeInterfaceWrapper<QObject *>;
 This file should be generated automatically based on the extern template
 declarations in `qmetatype.h`.
 
-### 4.4 QT_NO_DATA_RELOCATION Must NOT Be Defined on iOS
+### 4.4 QProcess Types Must Be Excluded on iOS
+
+`QT_CONFIG(process)` is false on iOS. Shiboken generates wrappers for
+`QProcess` and `QProcess::UnixProcessParameters`, and the generated header
+`pyside6_qtcore_python.h` emits an `SbkType<>` specialization for
+`QProcess::UnixProcessParameters` outside the `#if QT_CONFIG(process)` guard.
+
+**Fix:** Exclude `qprocess_wrapper.cpp` and
+`qprocess_unixprocessparameters_wrapper.cpp` from compilation. Patch the
+generated header to wrap the `UnixProcessParameters` specialization in
+`#if QT_CONFIG(process)` / `#endif`. Provide null stubs for `init_QProcess`
+and related type init functions in an `excluded_stubs.o`.
+
+### 4.5 QT_NO_DATA_RELOCATION Must NOT Be Defined on iOS
 
 **Symptom:** Crashes in `QMetaObject::className()` / `strcmp` — corrupted
 string pointers.
@@ -275,7 +288,7 @@ define it, struct field offsets are wrong: every `QMetaObject` field read after
 **Fix:** Never define `QT_NO_DATA_RELOCATION` when targeting iOS. This should
 be enforced in the PySide6 build system.
 
-### 4.5 DTLS Classes Must Be Excluded on iOS
+### 4.6 DTLS Classes Must Be Excluded on iOS
 
 Qt's DTLS (Datagram TLS) APIs are not available on iOS. Shiboken must exclude
 them during generation:
@@ -288,19 +301,19 @@ Additionally, generated `qsslconfiguration_wrapper.cpp` may contain DTLS method
 wrappers (`defaultDtlsConfiguration`, `setDefaultDtlsConfiguration`, etc.) that
 must be patched out post-generation.
 
-### 4.6 AVOID_PROTECTED_HACK for QThread
+### 4.7 AVOID_PROTECTED_HACK for QThread
 
 `qthread_wrapper.cpp` accesses `QThread::exec()` which is protected. Must
 compile with `-DAVOID_PROTECTED_HACK` so the generated `QThreadWrapper` class
 uses its `exec_protected()` accessor.
 
-### 4.7 SHIBOKEN_NO_EMBEDDING_PYC for Cross-Compilation
+### 4.8 SHIBOKEN_NO_EMBEDDING_PYC for Cross-Compilation
 
 Shiboken's signature system embeds compiled `.pyc` bytecode for the host
 platform. When cross-compiling, define `SHIBOKEN_NO_EMBEDDING_PYC` to skip
 embedding and use source-based loading instead.
 
-### 4.8 Shiboken Bootstrap Pre-Imports
+### 4.9 Shiboken Bootstrap Pre-Imports
 
 Shiboken's signature bootstrap runs inside `PyInit_Shiboken` and attempts to
 import `zipfile`, `struct`, `io`, etc. On iOS, these may not be loadable during
