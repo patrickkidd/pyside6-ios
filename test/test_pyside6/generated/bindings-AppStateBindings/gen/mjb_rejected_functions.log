@@ -1,0 +1,1452 @@
+**********************************
+Generation disabled by type system
+**********************************
+
+ - QString AppState::tr(const char*,const char*,int): matches class "^.*$" and "^tr$"
+ - void QByteArray::QByteArray(qsizetype,Qt::Initialization): matches class "^.*$" and "Qt::Initialization" matches "^Qt\:\:Initialization$"
+ - const QByteArray::DataPointer& QByteArray::data_ptr(): matches class "^.*$" and "^data_ptr$"
+ - void QByteArray::detach(): matches class "^(?!QSharedMemory).*$" and "^detach$"
+ - bool QByteArray::isDetached(): matches class "^.*$" and "^isDetached$"
+ - QDataStream& QDataStream::operator<<(std::nullptr_t): matches class "^.*$" and "std::nullptr_t" matches "^std::nullptr_t&?$"
+ - QDataStream& QDataStream::operator>>(std::nullptr_t&): matches class "^.*$" and "std::nullptr_t&" matches "^std::nullptr_t&?$"
+ - void QList::QList<T>(qsizetype,Qt::Initialization): matches class "^.*$" and "Qt::Initialization" matches "^Qt\:\:Initialization$"
+ - void QList::QList<T>(std::initializer_list<T>): matches class "^.*$" and "std::initializer_list<T>" matches "^std::initializer_list<.*$"
+ - QList<T>& QList::assign(std::initializer_list<T>): matches class "^.*$" and "std::initializer_list<T>" matches "^std::initializer_list<.*$"
+ - void QList::detach(): matches class "^(?!QSharedMemory).*$" and "^detach$"
+ - bool QList::isDetached(): matches class "^.*$" and "^isDetached$"
+ - QList<T>& QList::operator=(std::initializer_list<T>): matches class "^.*$" and "std::initializer_list<T>" matches "^std::initializer_list<.*$"
+ - void QMetaObject::activate(QObject*,const QMetaObject*,int,void**): matches class "^QMetaObject$" and "^activate$"
+ - void QMetaObject::activate(QObject*,int,int,void**): matches class "^QMetaObject$" and "^activate$"
+ - void QMetaObject::activate(QObject*,int,void**): matches class "^QMetaObject$" and "^activate$"
+ - bool QMetaObject::invokeMethodImpl(QObject*,QtPrivate::QSlotObjectBase*,Qt::ConnectionType,qsizetype,const void*const*,const char*const*,const QtPrivate::QMetaTypeInterface*const*): matches class "^.*$" and "QtPrivate::QSlotObjectBase*" matches "^QtPrivate\:\:QSlotObjectBase\*$"
+ - int QMetaObject::metacall(QObject*,QMetaObject::Call,int,void**): matches class "^QMetaObject$" and "^metacall$"
+ - int QMetaObject::static_metacall(QMetaObject::Call,int,void**): matches class "^QMetaObject$" and "^static_metacall$"
+ - QString QMetaObject::tr(const char*,const char*,int): matches class "^.*$" and "^tr$"
+ - void QObject::QObject(QObjectPrivate&,QObject*): matches class "^.*$" and "QObjectPrivate&" matches "^Q\w+Private( const)?\&$"
+ - QMetaObject::Connection QObject::connectImpl(const QObject*,void**,const QObject*,void**,QtPrivate::QSlotObjectBase*,Qt::ConnectionType,const int*,const QMetaObject*): matches class "^.*$" and "QtPrivate::QSlotObjectBase*" matches "^QtPrivate\:\:QSlotObjectBase\*$"
+ - QObjectPrivate* QObject::d_func(): matches class "^.*$" and "^d_func$"
+ - QString QObject::tr(const char*,const char*,int): matches class "^.*$" and "^tr$"
+
+***********************
+Unmatched argument type
+***********************
+
+ - void QByteArray::QByteArray(QByteArray::DataPointer&&): unmatched type 'QByteArray::DataPointer&&' in parameter #1 "dd": Unable to translate type "QByteArray::DataPointer&&": Cannot find type entry for "QArrayDataPointer".
+ - void QByteArray::QByteArray(const QByteArray::DataPointer&): unmatched type 'const QByteArray::DataPointer&' in parameter #1 "dd": Unable to translate type "const QByteArray::DataPointer&": Cannot find type entry for "QArrayDataPointer".
+ - QByteArray QByteArray::fromCFData(CFDataRef): unmatched type 'CFDataRef' in parameter #1 "data": Unable to translate type "CFDataRef": Cannot find type entry for "__CFData".
+ - QByteArray QByteArray::fromNSData(const NSData*): unmatched type 'const NSData*' in parameter #1 "data": Unable to translate type "const NSData*": Cannot find type entry for "NSData".
+ - QByteArray QByteArray::fromRawCFData(CFDataRef): unmatched type 'CFDataRef' in parameter #1 "data": Unable to translate type "CFDataRef": Cannot find type entry for "__CFData".
+ - QByteArray QByteArray::fromRawNSData(const NSData*): unmatched type 'const NSData*' in parameter #1 "data": Unable to translate type "const NSData*": Cannot find type entry for "NSData".
+ - bool QByteArray::operator!=(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator!=(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator!=(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - bool QByteArray::operator<(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator<(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator<(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - bool QByteArray::operator<=(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator<=(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator<=(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - bool QByteArray::operator==(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator==(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator==(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - bool QByteArray::operator>(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator>(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator>(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - bool QByteArray::operator>=(const QBasicUtf8StringView<>&,const QByteArray&): unmatched type 'const QBasicUtf8StringView<>&' in parameter #1 "lhs": Unable to translate type "const QBasicUtf8StringView<>&": Cannot find type entry for "QBasicUtf8StringView".
+ - bool QByteArray::operator>=(const char16_t&,const QByteArray&): unmatched type 'const char16_t&' in parameter #1 "lhs": Unable to translate type "const char16_t&": Cannot find type entry for "char16_t".
+ - bool QByteArray::operator>=(const std::nullptr_t&,const QByteArray&): unmatched type 'const std::nullptr_t&' in parameter #1 "lhs": Unable to translate type "const std::nullptr_t&": Cannot find type entry for "std::nullptr_t".
+ - void QByteArray::reallocData(qsizetype,QArrayData::AllocationOption): unmatched type 'QArrayData::AllocationOption' in parameter #2 "option": Unable to translate type "QArrayData::AllocationOption": Cannot find type entry for "QArrayData::AllocationOption".
+ - QDataStream& QDataStream::operator<<(char16_t): unmatched type 'char16_t' in parameter #1 "c": Unable to translate type "char16_t": Cannot find type entry for "char16_t".
+ - QDataStream& QDataStream::operator<<(char32_t): unmatched type 'char32_t' in parameter #1 "c": Unable to translate type "char32_t": Cannot find type entry for "char32_t".
+ - QDataStream& QDataStream::operator>>(char16_t&): unmatched type 'char16_t&' in parameter #1 "c": Unable to translate type "char16_t&": Cannot find type entry for "char16_t".
+ - QDataStream& QDataStream::operator>>(char32_t&): unmatched type 'char32_t&' in parameter #1 "c": Unable to translate type "char32_t&": Cannot find type entry for "char32_t".
+ - void QKeyCombination::QKeyCombination(Qt::Modifiers,Qt::Key): unmatched type 'Qt::Modifiers' in parameter #1 "modifiers": Unable to translate type "Qt::Modifiers": Cannot find type entry for "QFlags<Qt::Modifier>".
+ - void QList::QList<T>(QList::DataPointer): unmatched type 'QList::DataPointer' in parameter #1 "dd": Unable to translate type "QList::DataPointer": Cannot find type entry for "QList::DataPointer".
+ - void QList::QList<T>(qsizetype,QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #2 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::append(QList::const_iterator,QList::const_iterator): unmatched type 'QList::const_iterator' in parameter #1 "i1": Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - void QList::append(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::append(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - QList<T>& QList::assign(qsizetype,QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #2 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - bool QList::endsWith(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - QList<T>& QList::fill(QList::parameter_type,qsizetype): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - bool QList::isValidIterator(QList::const_iterator): unmatched type 'QList::const_iterator' in parameter #1 "i": Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - QList<T>& QList::operator+=(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - QList<T>& QList::operator+=(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - QList<T>& QList::operator<<(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - QList<T>& QList::operator<<(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - void QList::prepend(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::prepend(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - void QList::push_back(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::push_back(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - void QList::push_front(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::push_front(QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #1 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - void QList::replace(qsizetype,QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #2 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - void QList::replace(qsizetype,QList::rvalue_ref): unmatched type 'QList::rvalue_ref' in parameter #2 "t": Unable to translate type "QList::rvalue_ref": Cannot find type entry for "QList::rvalue_ref".
+ - void QList::resize(qsizetype,QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #2 "c": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - bool QList::startsWith(QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #1 "t": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - T QList::value(qsizetype,QList::parameter_type): unmatched type 'QList::parameter_type' in parameter #2 "defaultValue": Unable to translate type "QList::parameter_type": Cannot find type entry for "QList::parameter_type".
+ - bool QMetaObject::invokeMethodImpl(QObject*,const char*,Qt::ConnectionType,qsizetype,const void*const*,const char*const*,const QtPrivate::QMetaTypeInterface*const*): unmatched type 'const QtPrivate::QMetaTypeInterface*const*' in parameter #7 "metaTypes": Unable to translate type "const QtPrivate::QMetaTypeInterface*const*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - QObject* QMetaObject::newInstanceImpl(const QMetaObject*,qsizetype,const void**,const char**,const QtPrivate::QMetaTypeInterface**): unmatched type 'const QtPrivate::QMetaTypeInterface**' in parameter #5 "metaTypes": Unable to translate type "const QtPrivate::QMetaTypeInterface**": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - void QMetaType::QMetaType(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1 "d": Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::debugStream(QDebug&,const void*): unmatched type 'QDebug&' in parameter #1 "dbg": Unable to translate type "QDebug&": Cannot find type entry for "QDebug".
+ - bool QMetaType::debugStream(QDebug&,const void*,int): unmatched type 'QDebug&' in parameter #1 "dbg": Unable to translate type "QDebug&": Cannot find type entry for "QDebug".
+ - bool QMetaType::isCopyConstructible(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1: Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::isDefaultConstructible(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1: Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1: Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::isMoveConstructible(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1: Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::registerConverterFunction(const QMetaType::ConverterFunction&,QMetaType,QMetaType): unmatched type 'const QMetaType::ConverterFunction&' in parameter #1 "f": Unable to translate type "const QMetaType::ConverterFunction&": Cannot find type entry for "std::function".
+ - int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface*): unmatched type 'const QtPrivate::QMetaTypeInterface*' in parameter #1 "iface": Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - bool QMetaType::registerMutableViewFunction(const QMetaType::MutableViewFunction&,QMetaType,QMetaType): unmatched type 'const QMetaType::MutableViewFunction&' in parameter #1 "f": Unable to translate type "const QMetaType::MutableViewFunction&": Cannot find type entry for "std::function".
+ - int QObject::startTimer(std::chrono::nanoseconds,Qt::TimerType): unmatched type 'std::chrono::nanoseconds' in parameter #1 "time": Unable to translate type "std::chrono::nanoseconds": Cannot find type entry for "std::chrono::nanoseconds".
+ - void QStringConverter::QStringConverter(const QStringConverter::Interface*): unmatched type 'const QStringConverter::Interface*' in parameter #1 "i": Unable to translate type "const QStringConverter::Interface*": Cannot find type entry for "QStringConverter::Interface".
+ - void QStringDecoder::QStringDecoder(const QStringConverter::Interface*): unmatched type 'const QStringConverter::Interface*' in parameter #1 "i": Unable to translate type "const QStringConverter::Interface*": Cannot find type entry for "QStringConverter::Interface".
+ - void QStringEncoder::QStringEncoder(const QStringConverter::Interface*): unmatched type 'const QStringConverter::Interface*' in parameter #1 "i": Unable to translate type "const QStringConverter::Interface*": Cannot find type entry for "QStringConverter::Interface".
+ - bool Qt::is_eq(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_eq(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_eq(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - bool Qt::is_gt(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_gt(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_gt(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - bool Qt::is_gteq(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_gteq(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_gteq(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - bool Qt::is_lt(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_lt(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_lt(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - bool Qt::is_lteq(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_lteq(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_lteq(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - bool Qt::is_neq(Qt::partial_ordering): unmatched type 'Qt::partial_ordering' in parameter #1 "o": Unable to translate type "Qt::partial_ordering": Cannot find type entry for "Qt::partial_ordering".
+ - bool Qt::is_neq(Qt::strong_ordering): unmatched type 'Qt::strong_ordering' in parameter #1 "o": Unable to translate type "Qt::strong_ordering": Cannot find type entry for "Qt::strong_ordering".
+ - bool Qt::is_neq(Qt::weak_ordering): unmatched type 'Qt::weak_ordering' in parameter #1 "o": Unable to translate type "Qt::weak_ordering": Cannot find type entry for "Qt::weak_ordering".
+ - size_t Qt::qHash(totally_ordered_wrapper<P>,size_t): unmatched type 'totally_ordered_wrapper<P>' in parameter #1 "key": Unable to translate type "totally_ordered_wrapper<P>": Cannot find type entry for "totally_ordered_wrapper".
+ - void Qt::qt_ptr_swap(totally_ordered_wrapper<P>&,totally_ordered_wrapper<P>&): unmatched type 'totally_ordered_wrapper<P>&' in parameter #1 "lhs": Unable to translate type "totally_ordered_wrapper<P>&": Cannot find type entry for "totally_ordered_wrapper".
+ - void Qt::swap(totally_ordered_wrapper<P>&,totally_ordered_wrapper<P>&): unmatched type 'totally_ordered_wrapper<P>&' in parameter #1 "lhs": Unable to translate type "totally_ordered_wrapper<P>&": Cannot find type entry for "totally_ordered_wrapper".
+
+*********************
+Unmatched return type
+*********************
+
+ - QByteArray::const_reverse_iterator QByteArray::crbegin(): unmatched return type 'QByteArray::const_reverse_iterator': Unable to translate type "QByteArray::const_reverse_iterator": Cannot find type entry for "std::reverse_iterator".
+ - QByteArray::const_reverse_iterator QByteArray::crend(): unmatched return type 'QByteArray::const_reverse_iterator': Unable to translate type "QByteArray::const_reverse_iterator": Cannot find type entry for "std::reverse_iterator".
+ - QByteArray::reverse_iterator QByteArray::rbegin(): unmatched return type 'QByteArray::reverse_iterator': Unable to translate type "QByteArray::reverse_iterator": Cannot find type entry for "std::reverse_iterator".
+ - QByteArray::reverse_iterator QByteArray::rend(): unmatched return type 'QByteArray::reverse_iterator': Unable to translate type "QByteArray::reverse_iterator": Cannot find type entry for "std::reverse_iterator".
+ - CFDataRef QByteArray::toCFData(): unmatched return type 'CFDataRef': Unable to translate type "CFDataRef": Cannot find type entry for "__CFData".
+ - NSData* QByteArray::toNSData(): unmatched return type 'NSData*': Unable to translate type "NSData*": Cannot find type entry for "NSData".
+ - CFDataRef QByteArray::toRawCFData(): unmatched return type 'CFDataRef': Unable to translate type "CFDataRef": Cannot find type entry for "__CFData".
+ - NSData* QByteArray::toRawNSData(): unmatched return type 'NSData*': Unable to translate type "NSData*": Cannot find type entry for "NSData".
+ - QList::iterator QList::begin(): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::const_iterator QList::cbegin(): unmatched return type 'QList::const_iterator': Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - QList::const_iterator QList::cend(): unmatched return type 'QList::const_iterator': Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - QList::const_iterator QList::constBegin(): unmatched return type 'QList::const_iterator': Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - QList::const_iterator QList::constEnd(): unmatched return type 'QList::const_iterator': Unable to translate type "QList::const_iterator": Cannot find type entry for "QList<T>::const_iterator".
+ - QList::const_reverse_iterator QList::crbegin(): unmatched return type 'QList::const_reverse_iterator': Unable to translate type "QList::const_reverse_iterator": Cannot find type entry for "QList::const_reverse_iterator".
+ - QList::const_reverse_iterator QList::crend(): unmatched return type 'QList::const_reverse_iterator': Unable to translate type "QList::const_reverse_iterator": Cannot find type entry for "QList::const_reverse_iterator".
+ - QList::iterator QList::end(): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::erase(QList::const_iterator): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::erase(QList::const_iterator,QList::const_iterator): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(QList::const_iterator,QList::parameter_type): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(QList::const_iterator,QList::rvalue_ref): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(QList::const_iterator,qsizetype,QList::parameter_type): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(qsizetype,QList::parameter_type): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(qsizetype,QList::rvalue_ref): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::iterator QList::insert(qsizetype,qsizetype,QList::parameter_type): unmatched return type 'QList::iterator': Unable to translate type "QList::iterator": Cannot find type entry for "QList<T>::iterator".
+ - QList::reverse_iterator QList::rbegin(): unmatched return type 'QList::reverse_iterator': Unable to translate type "QList::reverse_iterator": Cannot find type entry for "QList::reverse_iterator".
+ - QList::reverse_iterator QList::rend(): unmatched return type 'QList::reverse_iterator': Unable to translate type "QList::reverse_iterator": Cannot find type entry for "QList::reverse_iterator".
+ - QList::value_type QList::takeFirst(): unmatched return type 'QList::value_type': Unable to translate type "QList::value_type": Cannot find type entry for "QList::value_type".
+ - QList::value_type QList::takeLast(): unmatched return type 'QList::value_type': Unable to translate type "QList::value_type": Cannot find type entry for "QList::value_type".
+ - QMetaObject::Connection::RestrictedBool QMetaObject::Connection::operator void *QMetaObject::Connection::*(): unmatched return type 'QMetaObject::Connection::RestrictedBool': Unable to translate type "QMetaObject::Connection::RestrictedBool": Cannot find type entry for "void *QMetaObject::Connection::*".
+ - QPartialOrdering QMetaType::compare(const void*,const void*): unmatched return type 'QPartialOrdering': Unable to translate type "QPartialOrdering": Cannot find type entry for "QPartialOrdering".
+ - const QtPrivate::QMetaTypeInterface* QMetaType::iface(): unmatched return type 'const QtPrivate::QMetaTypeInterface*': Unable to translate type "const QtPrivate::QMetaTypeInterface*": Cannot find type entry for "QtPrivate::QMetaTypeInterface".
+ - QBindable<QString> QObject::bindableObjectName(): unmatched return type 'QBindable<QString>': Unable to translate type "QBindable<QString>": Cannot find type entry for "QBindable".
+ - QBindingStorage* QObject::bindingStorage(): unmatched return type 'QBindingStorage*': Unable to translate type "QBindingStorage*": Cannot find type entry for "QBindingStorage".
+ - QDebug QObject::operator<<(QDebug,const QObject*): unmatched return type 'QDebug': Unable to translate type "QDebug": Cannot find type entry for "QDebug".
+ - std::optional<QStringConverter::Encoding> QStringConverter::encodingForData(QByteArrayView,char16_t): unmatched return type 'std::optional<QStringConverter::Encoding>': Unable to translate type "std::optional<QStringConverter::Encoding>": Cannot find type entry for "std::optional".
+ - std::optional<QStringConverter::Encoding> QStringConverter::encodingForHtml(QByteArrayView): unmatched return type 'std::optional<QStringConverter::Encoding>': Unable to translate type "std::optional<QStringConverter::Encoding>": Cannot find type entry for "std::optional".
+ - std::optional<QStringConverter::Encoding> QStringConverter::encodingForName(QAnyStringView): unmatched return type 'std::optional<QStringConverter::Encoding>': Unable to translate type "std::optional<QStringConverter::Encoding>": Cannot find type entry for "std::optional".
+ - char16_t* QStringDecoder::appendToBuffer(char16_t*,QByteArrayView): unmatched return type 'char16_t*': Unable to translate type "char16_t*": Cannot find type entry for "char16_t".
+ - QStringDecoder::EncodedData<QByteArrayView> QStringDecoder::decode(QByteArrayView): unmatched return type 'QStringDecoder::EncodedData<QByteArrayView>': Unable to translate type "QStringDecoder::EncodedData<QByteArrayView>": Cannot find type entry for "QStringDecoder::EncodedData<T>".
+ - QStringDecoder::EncodedData<QByteArrayView> QStringDecoder::operator()(QByteArrayView): unmatched return type 'QStringDecoder::EncodedData<QByteArrayView>': Unable to translate type "QStringDecoder::EncodedData<QByteArrayView>": Cannot find type entry for "QStringDecoder::EncodedData<T>".
+ - QStringEncoder::DecodedData<QStringView> QStringEncoder::encode(QStringView): unmatched return type 'QStringEncoder::DecodedData<QStringView>': Unable to translate type "QStringEncoder::DecodedData<QStringView>": Cannot find type entry for "QStringEncoder::DecodedData<T>".
+ - QStringEncoder::DecodedData<QStringView> QStringEncoder::operator()(QStringView): unmatched return type 'QStringEncoder::DecodedData<QStringView>': Unable to translate type "QStringEncoder::DecodedData<QStringView>": Cannot find type entry for "QStringEncoder::DecodedData<T>".
+
+******************
+Unmatched operator
+******************
+
+ - bool Qt::operator!=(Qt::partial_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::partial_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::partial_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator!=(Qt::strong_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::strong_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::strong_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator!=(Qt::weak_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::weak_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::weak_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator!=(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator!=(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator!=(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator!=(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator!=(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator!=(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator&(QFlags::enum_type<Qt::AlignmentFlag>,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator&(QFlags::enum_type<Qt::AlignmentFlag>,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator&(QFlags::enum_type<Qt::DockWidgetArea>,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator&(QFlags::enum_type<Qt::DockWidgetArea>,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator&(QFlags::enum_type<Qt::DropAction>,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator&(QFlags::enum_type<Qt::DropAction>,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator&(QFlags::enum_type<Qt::Edge>,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator&(QFlags::enum_type<Qt::Edge>,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator&(QFlags::enum_type<Qt::GestureFlag>,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator&(QFlags::enum_type<Qt::GestureFlag>,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator&(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator&(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator&(QFlags::enum_type<Qt::InputMethodHint>,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator&(QFlags::enum_type<Qt::InputMethodHint>,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator&(QFlags::enum_type<Qt::InputMethodQuery>,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator&(QFlags::enum_type<Qt::InputMethodQuery>,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator&(QFlags::enum_type<Qt::ItemFlag>,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator&(QFlags::enum_type<Qt::ItemFlag>,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator&(QFlags::enum_type<Qt::KeyboardModifier>,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator&(QFlags::enum_type<Qt::KeyboardModifier>,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator&(QFlags::enum_type<Qt::MatchFlag>,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator&(QFlags::enum_type<Qt::MatchFlag>,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator&(QFlags::enum_type<Qt::Modifier>,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator&(QFlags::enum_type<Qt::Modifier>,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator&(QFlags::enum_type<Qt::MouseButton>,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator&(QFlags::enum_type<Qt::MouseButton>,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator&(QFlags::enum_type<Qt::MouseEventFlag>,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator&(QFlags::enum_type<Qt::MouseEventFlag>,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator&(QFlags::enum_type<Qt::Orientation>,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator&(QFlags::enum_type<Qt::Orientation>,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator&(QFlags::enum_type<Qt::ScreenOrientation>,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator&(QFlags::enum_type<Qt::ScreenOrientation>,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator&(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator&(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator&(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator&(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator&(QFlags::enum_type<Qt::ToolBarArea>,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator&(QFlags::enum_type<Qt::ToolBarArea>,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator&(QFlags::enum_type<Qt::TouchPointState>,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator&(QFlags::enum_type<Qt::TouchPointState>,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator&(QFlags::enum_type<Qt::WindowState>,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator&(QFlags::enum_type<Qt::WindowState>,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator&(QFlags::enum_type<Qt::WindowType>,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator&(QFlags::enum_type<Qt::WindowType>,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - int Qt::operator&(Qt::AlignmentFlag,Qt::TextFlag): base operand class not found.
+ - int Qt::operator&(Qt::TextElideMode,Qt::TextFlag): base operand class not found.
+ - int Qt::operator&(Qt::TextFlag,Qt::AlignmentFlag): base operand class not found.
+ - int Qt::operator&(Qt::TextFlag,Qt::TextElideMode): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::AlignmentFlag>,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::AlignmentFlag>,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::AlignmentFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DockWidgetArea>,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DockWidgetArea>,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DockWidgetArea>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DropAction>,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DropAction>,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::DropAction>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Edge>,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Edge>,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Edge>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::GestureFlag>,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::GestureFlag>,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::GestureFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ImageConversionFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodHint>,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodHint>,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodHint>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodQuery>,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodQuery>,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::InputMethodQuery>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ItemFlag>,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ItemFlag>,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ItemFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::KeyboardModifier>,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::KeyboardModifier>,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::KeyboardModifier>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MatchFlag>,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MatchFlag>,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MatchFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Modifier>,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Modifier>,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Modifier>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseButton>,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseButton>,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseButton>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseEventFlag>,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseEventFlag>,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::MouseEventFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Orientation>,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Orientation>,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::Orientation>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ScreenOrientation>,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ScreenOrientation>,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ScreenOrientation>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::SplitBehaviorFlags>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TextInteractionFlag>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ToolBarArea>,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ToolBarArea>,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::ToolBarArea>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TouchPointState>,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TouchPointState>,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::TouchPointState>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowState>,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowState>,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowState>,int): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowType>,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowType>,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - void Qt::operator+(QFlags::enum_type<Qt::WindowType>,int): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Key,Qt::KeyboardModifier): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Key,Qt::KeyboardModifiers): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Key,Qt::Modifier): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Key,Qt::Modifiers): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::KeyboardModifier,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::KeyboardModifiers,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Modifier,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator+(Qt::Modifiers,Qt::Key): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - void Qt::operator+(int,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - void Qt::operator+(int,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::AlignmentFlag>,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::AlignmentFlag>,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::AlignmentFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DockWidgetArea>,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DockWidgetArea>,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DockWidgetArea>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DropAction>,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DropAction>,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::DropAction>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Edge>,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Edge>,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Edge>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::GestureFlag>,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::GestureFlag>,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::GestureFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ImageConversionFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodHint>,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodHint>,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodHint>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodQuery>,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodQuery>,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::InputMethodQuery>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ItemFlag>,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ItemFlag>,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ItemFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::KeyboardModifier>,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::KeyboardModifier>,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::KeyboardModifier>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MatchFlag>,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MatchFlag>,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MatchFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Modifier>,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Modifier>,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Modifier>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseButton>,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseButton>,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseButton>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseEventFlag>,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseEventFlag>,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::MouseEventFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Orientation>,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Orientation>,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::Orientation>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ScreenOrientation>,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ScreenOrientation>,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ScreenOrientation>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::SplitBehaviorFlags>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TextInteractionFlag>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ToolBarArea>,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ToolBarArea>,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::ToolBarArea>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TouchPointState>,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TouchPointState>,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::TouchPointState>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowState>,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowState>,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowState>,int): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowType>,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowType>,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - void Qt::operator-(QFlags::enum_type<Qt::WindowType>,int): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - void Qt::operator-(int,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - void Qt::operator-(int,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - bool Qt::operator<(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator<(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator<(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator<(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator<(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - bool Qt::operator<=(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<=(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<=(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator<=(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator<=(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator<=(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator<=(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator<=(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - bool Qt::operator==(Qt::partial_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::partial_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::partial_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator==(Qt::strong_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::strong_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::strong_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator==(Qt::weak_ordering,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::weak_ordering,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::weak_ordering,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator==(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator==(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator==(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator==(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator==(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator==(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - bool Qt::operator>(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator>(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator>(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator>(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator>(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - bool Qt::operator>=(Qt::partial_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>=(Qt::strong_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>=(Qt::weak_ordering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool Qt::operator>=(QtPrivate::CompareAgainstLiteralZero,Qt::partial_ordering): base operand class not found.
+ - bool Qt::operator>=(QtPrivate::CompareAgainstLiteralZero,Qt::strong_ordering): base operand class not found.
+ - bool Qt::operator>=(QtPrivate::CompareAgainstLiteralZero,Qt::weak_ordering): base operand class not found.
+ - bool Qt::operator>=(const totally_ordered_wrapper<P>&,std::nullptr_t): base operand class not found.
+ - bool Qt::operator>=(std::nullptr_t,const totally_ordered_wrapper<P>&): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator^(QFlags::enum_type<Qt::AlignmentFlag>,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator^(QFlags::enum_type<Qt::AlignmentFlag>,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator^(QFlags::enum_type<Qt::DockWidgetArea>,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator^(QFlags::enum_type<Qt::DockWidgetArea>,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator^(QFlags::enum_type<Qt::DropAction>,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator^(QFlags::enum_type<Qt::DropAction>,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator^(QFlags::enum_type<Qt::Edge>,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator^(QFlags::enum_type<Qt::Edge>,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator^(QFlags::enum_type<Qt::GestureFlag>,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator^(QFlags::enum_type<Qt::GestureFlag>,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator^(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator^(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator^(QFlags::enum_type<Qt::InputMethodHint>,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator^(QFlags::enum_type<Qt::InputMethodHint>,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator^(QFlags::enum_type<Qt::InputMethodQuery>,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator^(QFlags::enum_type<Qt::InputMethodQuery>,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator^(QFlags::enum_type<Qt::ItemFlag>,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator^(QFlags::enum_type<Qt::ItemFlag>,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator^(QFlags::enum_type<Qt::KeyboardModifier>,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator^(QFlags::enum_type<Qt::KeyboardModifier>,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator^(QFlags::enum_type<Qt::MatchFlag>,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator^(QFlags::enum_type<Qt::MatchFlag>,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator^(QFlags::enum_type<Qt::Modifier>,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator^(QFlags::enum_type<Qt::Modifier>,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator^(QFlags::enum_type<Qt::MouseButton>,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator^(QFlags::enum_type<Qt::MouseButton>,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator^(QFlags::enum_type<Qt::MouseEventFlag>,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator^(QFlags::enum_type<Qt::MouseEventFlag>,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator^(QFlags::enum_type<Qt::Orientation>,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator^(QFlags::enum_type<Qt::Orientation>,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator^(QFlags::enum_type<Qt::ScreenOrientation>,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator^(QFlags::enum_type<Qt::ScreenOrientation>,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator^(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator^(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator^(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator^(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator^(QFlags::enum_type<Qt::ToolBarArea>,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator^(QFlags::enum_type<Qt::ToolBarArea>,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator^(QFlags::enum_type<Qt::TouchPointState>,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator^(QFlags::enum_type<Qt::TouchPointState>,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator^(QFlags::enum_type<Qt::WindowState>,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator^(QFlags::enum_type<Qt::WindowState>,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator^(QFlags::enum_type<Qt::WindowType>,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator^(QFlags::enum_type<Qt::WindowType>,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - int Qt::operator^(Qt::AlignmentFlag,Qt::TextFlag): base operand class not found.
+ - int Qt::operator^(Qt::TextElideMode,Qt::TextFlag): base operand class not found.
+ - int Qt::operator^(Qt::TextFlag,Qt::AlignmentFlag): base operand class not found.
+ - int Qt::operator^(Qt::TextFlag,Qt::TextElideMode): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator|(QFlags::enum_type<Qt::AlignmentFlag>,QFlags::enum_type<Qt::AlignmentFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::AlignmentFlag> > Qt::operator|(QFlags::enum_type<Qt::AlignmentFlag>,QFlags<QFlags::enum_type<Qt::AlignmentFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::AlignmentFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator|(QFlags::enum_type<Qt::DockWidgetArea>,QFlags::enum_type<Qt::DockWidgetArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DockWidgetArea> > Qt::operator|(QFlags::enum_type<Qt::DockWidgetArea>,QFlags<QFlags::enum_type<Qt::DockWidgetArea> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::DockWidgetArea>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator|(QFlags::enum_type<Qt::DropAction>,QFlags::enum_type<Qt::DropAction>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::DropAction> > Qt::operator|(QFlags::enum_type<Qt::DropAction>,QFlags<QFlags::enum_type<Qt::DropAction> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::DropAction>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator|(QFlags::enum_type<Qt::Edge>,QFlags::enum_type<Qt::Edge>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Edge> > Qt::operator|(QFlags::enum_type<Qt::Edge>,QFlags<QFlags::enum_type<Qt::Edge> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::Edge>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator|(QFlags::enum_type<Qt::GestureFlag>,QFlags::enum_type<Qt::GestureFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::GestureFlag> > Qt::operator|(QFlags::enum_type<Qt::GestureFlag>,QFlags<QFlags::enum_type<Qt::GestureFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::GestureFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator|(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags::enum_type<Qt::ImageConversionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ImageConversionFlag> > Qt::operator|(QFlags::enum_type<Qt::ImageConversionFlag>,QFlags<QFlags::enum_type<Qt::ImageConversionFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::ImageConversionFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator|(QFlags::enum_type<Qt::InputMethodHint>,QFlags::enum_type<Qt::InputMethodHint>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodHint> > Qt::operator|(QFlags::enum_type<Qt::InputMethodHint>,QFlags<QFlags::enum_type<Qt::InputMethodHint> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::InputMethodHint>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator|(QFlags::enum_type<Qt::InputMethodQuery>,QFlags::enum_type<Qt::InputMethodQuery>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::InputMethodQuery> > Qt::operator|(QFlags::enum_type<Qt::InputMethodQuery>,QFlags<QFlags::enum_type<Qt::InputMethodQuery> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::InputMethodQuery>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator|(QFlags::enum_type<Qt::ItemFlag>,QFlags::enum_type<Qt::ItemFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ItemFlag> > Qt::operator|(QFlags::enum_type<Qt::ItemFlag>,QFlags<QFlags::enum_type<Qt::ItemFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::ItemFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator|(QFlags::enum_type<Qt::KeyboardModifier>,QFlags::enum_type<Qt::KeyboardModifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::KeyboardModifier> > Qt::operator|(QFlags::enum_type<Qt::KeyboardModifier>,QFlags<QFlags::enum_type<Qt::KeyboardModifier> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::KeyboardModifier>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator|(QFlags::enum_type<Qt::MatchFlag>,QFlags::enum_type<Qt::MatchFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MatchFlag> > Qt::operator|(QFlags::enum_type<Qt::MatchFlag>,QFlags<QFlags::enum_type<Qt::MatchFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::MatchFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator|(QFlags::enum_type<Qt::Modifier>,QFlags::enum_type<Qt::Modifier>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Modifier> > Qt::operator|(QFlags::enum_type<Qt::Modifier>,QFlags<QFlags::enum_type<Qt::Modifier> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::Modifier>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator|(QFlags::enum_type<Qt::MouseButton>,QFlags::enum_type<Qt::MouseButton>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseButton> > Qt::operator|(QFlags::enum_type<Qt::MouseButton>,QFlags<QFlags::enum_type<Qt::MouseButton> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::MouseButton>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator|(QFlags::enum_type<Qt::MouseEventFlag>,QFlags::enum_type<Qt::MouseEventFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::MouseEventFlag> > Qt::operator|(QFlags::enum_type<Qt::MouseEventFlag>,QFlags<QFlags::enum_type<Qt::MouseEventFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::MouseEventFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator|(QFlags::enum_type<Qt::Orientation>,QFlags::enum_type<Qt::Orientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::Orientation> > Qt::operator|(QFlags::enum_type<Qt::Orientation>,QFlags<QFlags::enum_type<Qt::Orientation> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::Orientation>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator|(QFlags::enum_type<Qt::ScreenOrientation>,QFlags::enum_type<Qt::ScreenOrientation>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ScreenOrientation> > Qt::operator|(QFlags::enum_type<Qt::ScreenOrientation>,QFlags<QFlags::enum_type<Qt::ScreenOrientation> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::ScreenOrientation>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator|(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags::enum_type<Qt::SplitBehaviorFlags>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> > Qt::operator|(QFlags::enum_type<Qt::SplitBehaviorFlags>,QFlags<QFlags::enum_type<Qt::SplitBehaviorFlags> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::SplitBehaviorFlags>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator|(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags::enum_type<Qt::TextInteractionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TextInteractionFlag> > Qt::operator|(QFlags::enum_type<Qt::TextInteractionFlag>,QFlags<QFlags::enum_type<Qt::TextInteractionFlag> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::TextInteractionFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator|(QFlags::enum_type<Qt::ToolBarArea>,QFlags::enum_type<Qt::ToolBarArea>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::ToolBarArea> > Qt::operator|(QFlags::enum_type<Qt::ToolBarArea>,QFlags<QFlags::enum_type<Qt::ToolBarArea> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::ToolBarArea>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator|(QFlags::enum_type<Qt::TouchPointState>,QFlags::enum_type<Qt::TouchPointState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::TouchPointState> > Qt::operator|(QFlags::enum_type<Qt::TouchPointState>,QFlags<QFlags::enum_type<Qt::TouchPointState> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::TouchPointState>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator|(QFlags::enum_type<Qt::WindowState>,QFlags::enum_type<Qt::WindowState>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowState> > Qt::operator|(QFlags::enum_type<Qt::WindowState>,QFlags<QFlags::enum_type<Qt::WindowState> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::WindowState>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator|(QFlags::enum_type<Qt::WindowType>,QFlags::enum_type<Qt::WindowType>): base operand class not found.
+ - QFlags<QFlags::enum_type<Qt::WindowType> > Qt::operator|(QFlags::enum_type<Qt::WindowType>,QFlags<QFlags::enum_type<Qt::WindowType> >): base operand class not found.
+ - QIncompatibleFlag Qt::operator|(QFlags::enum_type<Qt::WindowType>,int): base operand class not found.
+ - int Qt::operator|(Qt::AlignmentFlag,Qt::TextFlag): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Key,Qt::KeyboardModifier): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Key,Qt::KeyboardModifiers): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Key,Qt::Modifier): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Key,Qt::Modifiers): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::KeyboardModifier,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::KeyboardModifiers,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Modifier,Qt::Key): base operand class not found.
+ - QKeyCombination Qt::operator|(Qt::Modifiers,Qt::Key): base operand class not found.
+ - int Qt::operator|(Qt::TextElideMode,Qt::TextFlag): base operand class not found.
+ - int Qt::operator|(Qt::TextFlag,Qt::AlignmentFlag): base operand class not found.
+ - int Qt::operator|(Qt::TextFlag,Qt::TextElideMode): base operand class not found.
+ - bool operator!(QTaggedPointer<T, Tag>): base operand class not found.
+ - bool operator!=(Enum,QFlags<T>): base operand class not found.
+ - bool operator!=(QFlags<T>,Enum): base operand class not found.
+ - bool operator!=(QFlags<T>,QFlags<T>): base operand class not found.
+ - bool operator!=(QKeyValueIterator<Key, T, Iterator>,QKeyValueIterator<Key, T, Iterator>): base operand class not found.
+ - bool operator!=(QPartialOrdering,QPartialOrdering): base operand class not found.
+ - bool operator!=(QPartialOrdering,Qt::partial_ordering): base operand class not found.
+ - bool operator!=(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator!=(QStringTokenizerBase::sentinel,QStringTokenizerBase::sentinel): base operand class not found.
+ - bool operator!=(QStringTokenizerBase::sentinel,const QStringTokenizerBase::iterator&): base operand class not found.
+ - bool operator!=(QStringTokenizerBaseBase::tokenizer_state,QStringTokenizerBaseBase::tokenizer_state): base operand class not found.
+ - bool operator!=(QTaggedPointer<T, Tag>,QTaggedPointer<T, Tag>): base operand class not found.
+ - bool operator!=(QTaggedPointer<T, Tag>,std::nullptr_t): base operand class not found.
+ - bool operator!=(Qt::partial_ordering,QPartialOrdering): base operand class not found.
+ - bool operator!=(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator!=(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator!=(const QArrayDataPointer<T>&,const QArrayDataPointer<T>&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator!=(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QString&): base operand class not found.
+ - bool operator!=(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator!=(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator!=(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator!=(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator!=(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator!=(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QChar&,const QChar&): base operand class not found.
+ - bool operator!=(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QChar&,const QString&): base operand class not found.
+ - bool operator!=(const QChar&,const QStringView&): base operand class not found.
+ - bool operator!=(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator!=(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator!=(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator!=(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator!=(const QMetaAssociation&,const QMetaAssociation&): base operand class not found.
+ - bool operator!=(const QMetaSequence&,const QMetaSequence&): base operand class not found.
+ - bool operator!=(const QScopedPointer<T, Cleanup>&,const QScopedPointer<T, Cleanup>&): base operand class not found.
+ - bool operator!=(const QScopedPointer<T, Cleanup>&,std::nullptr_t): base operand class not found.
+ - bool operator!=(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QString&,const QChar&): base operand class not found.
+ - bool operator!=(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QString&,const QString&): base operand class not found.
+ - bool operator!=(const QString&,const char*const&): base operand class not found.
+ - bool operator!=(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator!=(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator!=(const QStringTokenizerBase::iterator&,QStringTokenizerBase::sentinel): base operand class not found.
+ - bool operator!=(const QStringTokenizerBase::iterator&,const QStringTokenizerBase::iterator&): base operand class not found.
+ - bool operator!=(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const QStringView&,const QChar&): base operand class not found.
+ - bool operator!=(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator!=(const QStringView&,const char*const&): base operand class not found.
+ - bool operator!=(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator!=(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator!=(const char*const&,const QString&): base operand class not found.
+ - bool operator!=(const char*const&,const QStringView&): base operand class not found.
+ - bool operator!=(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator!=(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator!=(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator!=(const double&,const qfloat16&): base operand class not found.
+ - bool operator!=(const float&,const qfloat16&): base operand class not found.
+ - bool operator!=(const long double&,const qfloat16&): base operand class not found.
+ - bool operator!=(const long&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qfloat16&,const double&): base operand class not found.
+ - bool operator!=(const qfloat16&,const float&): base operand class not found.
+ - bool operator!=(const qfloat16&,const long double&): base operand class not found.
+ - bool operator!=(const qfloat16&,const long&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator!=(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator!=(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator!=(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator!=(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator!=(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator!=(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator!=(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator!=(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator!=(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator!=(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator!=(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator!=(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator!=(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator!=(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator!=(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator!=(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator!=(const unsigned long&,const qfloat16&): base operand class not found.
+ - bool operator!=(std::nullptr_t,QTaggedPointer<T, Tag>): base operand class not found.
+ - bool operator!=(std::nullptr_t,const QScopedPointer<T, Cleanup>&): base operand class not found.
+ - auto operator%(A&&,B&&): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator&(QFlags::enum_type<QArrayData::ArrayOption>,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator&(QFlags::enum_type<QArrayData::ArrayOption>,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator&(QFlags::enum_type<QByteArray::Base64Option>,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator&(QFlags::enum_type<QByteArray::Base64Option>,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator&(QFlags::enum_type<QMetaType::TypeFlag>,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator&(QFlags::enum_type<QMetaType::TypeFlag>,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator&(QFlags::enum_type<QString::SectionFlag>,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator&(QFlags::enum_type<QString::SectionFlag>,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator&(QFlags::enum_type<QStringConverterBase::Flag>,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator&(QFlags::enum_type<QStringConverterBase::Flag>,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - double operator*(double,qfloat16): base operand class not found.
+ - float operator*(float,qfloat16): base operand class not found.
+ - double operator*(int,qfloat16): base operand class not found.
+ - long double operator*(long double,qfloat16): base operand class not found.
+ - double operator*(qfloat16,double): base operand class not found.
+ - float operator*(qfloat16,float): base operand class not found.
+ - double operator*(qfloat16,int): base operand class not found.
+ - long double operator*(qfloat16,long double): base operand class not found.
+ - qfloat16 operator*(qfloat16,qfloat16): base operand class not found.
+ - qfloat16& operator*=(qfloat16&,double): base operand class not found.
+ - qfloat16& operator*=(qfloat16&,float): base operand class not found.
+ - qfloat16& operator*=(qfloat16&,long double): base operand class not found.
+ - QByteArray operator+(QByteArray&&,char): base operand class not found.
+ - QByteArray operator+(QByteArray&&,const char*): base operand class not found.
+ - QString operator+(QChar,const QString&): base operand class not found.
+ - void operator+(QFlags::enum_type<QArrayData::ArrayOption>,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - void operator+(QFlags::enum_type<QArrayData::ArrayOption>,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - void operator+(QFlags::enum_type<QArrayData::ArrayOption>,int): base operand class not found.
+ - void operator+(QFlags::enum_type<QByteArray::Base64Option>,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - void operator+(QFlags::enum_type<QByteArray::Base64Option>,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - void operator+(QFlags::enum_type<QByteArray::Base64Option>,int): base operand class not found.
+ - void operator+(QFlags::enum_type<QMetaType::TypeFlag>,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - void operator+(QFlags::enum_type<QMetaType::TypeFlag>,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - void operator+(QFlags::enum_type<QMetaType::TypeFlag>,int): base operand class not found.
+ - void operator+(QFlags::enum_type<QString::SectionFlag>,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - void operator+(QFlags::enum_type<QString::SectionFlag>,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - void operator+(QFlags::enum_type<QString::SectionFlag>,int): base operand class not found.
+ - void operator+(QFlags::enum_type<QStringConverterBase::Flag>,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - void operator+(QFlags::enum_type<QStringConverterBase::Flag>,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - void operator+(QFlags::enum_type<QStringConverterBase::Flag>,int): base operand class not found.
+ - QString operator+(QString&&,QChar): base operand class not found.
+ - QString operator+(QString&&,const QString&): base operand class not found.
+ - QString operator+(QString&&,const char*): base operand class not found.
+ - QByteArray operator+(const QByteArray&,char): base operand class not found.
+ - QString operator+(const QByteArray&,const QString&): base operand class not found.
+ - QByteArray operator+(const QByteArray&,const char*): base operand class not found.
+ - QString operator+(const QString&,QChar): base operand class not found.
+ - QString operator+(const QString&,const QString&): base operand class not found.
+ - QString operator+(const QString&,const char*): base operand class not found.
+ - QString operator+(const char*,const QString&): base operand class not found.
+ - double operator+(double,qfloat16): base operand class not found.
+ - float operator+(float,qfloat16): base operand class not found.
+ - void operator+(int,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - void operator+(int,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - void operator+(int,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - void operator+(int,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - void operator+(int,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - void operator+(int,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - void operator+(int,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - void operator+(int,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - void operator+(int,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - void operator+(int,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - double operator+(int,qfloat16): base operand class not found.
+ - long double operator+(long double,qfloat16): base operand class not found.
+ - double operator+(qfloat16,double): base operand class not found.
+ - float operator+(qfloat16,float): base operand class not found.
+ - double operator+(qfloat16,int): base operand class not found.
+ - long double operator+(qfloat16,long double): base operand class not found.
+ - qfloat16 operator+(qfloat16,qfloat16): base operand class not found.
+ - QList::const_iterator operator+(qsizetype,QList::const_iterator): base operand class not found.
+ - QList::iterator operator+(qsizetype,QList::iterator): base operand class not found.
+ - QConstIterator<Container> operator+(qsizetype,const QConstIterator<Container>&): base operand class not found.
+ - QIterator<Container> operator+(qsizetype,const QIterator<Container>&): base operand class not found.
+ - QTaggedIterator<Iterator, IteratorCategory> operator+(qsizetype,const QTaggedIterator<Iterator, IteratorCategory>&): base operand class not found.
+ - QByteArray& operator+=(QByteArray&,const QStringBuilder<A, B>&): base operand class not found.
+ - QString& operator+=(QString&,const QStringBuilder<A, B>&): base operand class not found.
+ - qfloat16& operator+=(qfloat16&,double): base operand class not found.
+ - qfloat16& operator+=(qfloat16&,float): base operand class not found.
+ - qfloat16& operator+=(qfloat16&,long double): base operand class not found.
+ - void operator-(QFlags::enum_type<QArrayData::ArrayOption>,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - void operator-(QFlags::enum_type<QArrayData::ArrayOption>,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - void operator-(QFlags::enum_type<QArrayData::ArrayOption>,int): base operand class not found.
+ - void operator-(QFlags::enum_type<QByteArray::Base64Option>,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - void operator-(QFlags::enum_type<QByteArray::Base64Option>,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - void operator-(QFlags::enum_type<QByteArray::Base64Option>,int): base operand class not found.
+ - void operator-(QFlags::enum_type<QMetaType::TypeFlag>,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - void operator-(QFlags::enum_type<QMetaType::TypeFlag>,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - void operator-(QFlags::enum_type<QMetaType::TypeFlag>,int): base operand class not found.
+ - void operator-(QFlags::enum_type<QString::SectionFlag>,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - void operator-(QFlags::enum_type<QString::SectionFlag>,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - void operator-(QFlags::enum_type<QString::SectionFlag>,int): base operand class not found.
+ - void operator-(QFlags::enum_type<QStringConverterBase::Flag>,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - void operator-(QFlags::enum_type<QStringConverterBase::Flag>,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - void operator-(QFlags::enum_type<QStringConverterBase::Flag>,int): base operand class not found.
+ - double operator-(double,qfloat16): base operand class not found.
+ - float operator-(float,qfloat16): base operand class not found.
+ - void operator-(int,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - void operator-(int,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - void operator-(int,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - void operator-(int,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - void operator-(int,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - void operator-(int,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - void operator-(int,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - void operator-(int,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - void operator-(int,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - void operator-(int,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - double operator-(int,qfloat16): base operand class not found.
+ - long double operator-(long double,qfloat16): base operand class not found.
+ - qfloat16 operator-(qfloat16): base operand class not found.
+ - double operator-(qfloat16,double): base operand class not found.
+ - float operator-(qfloat16,float): base operand class not found.
+ - double operator-(qfloat16,int): base operand class not found.
+ - long double operator-(qfloat16,long double): base operand class not found.
+ - qfloat16 operator-(qfloat16,qfloat16): base operand class not found.
+ - qfloat16& operator-=(qfloat16&,double): base operand class not found.
+ - qfloat16& operator-=(qfloat16&,float): base operand class not found.
+ - qfloat16& operator-=(qfloat16&,long double): base operand class not found.
+ - double operator/(double,qfloat16): base operand class not found.
+ - float operator/(float,qfloat16): base operand class not found.
+ - double operator/(int,qfloat16): base operand class not found.
+ - long double operator/(long double,qfloat16): base operand class not found.
+ - double operator/(qfloat16,double): base operand class not found.
+ - float operator/(qfloat16,float): base operand class not found.
+ - double operator/(qfloat16,int): base operand class not found.
+ - long double operator/(qfloat16,long double): base operand class not found.
+ - qfloat16 operator/(qfloat16,qfloat16): base operand class not found.
+ - qfloat16& operator/=(qfloat16&,double): base operand class not found.
+ - qfloat16& operator/=(qfloat16&,float): base operand class not found.
+ - qfloat16& operator/=(qfloat16&,long double): base operand class not found.
+ - bool operator<(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator<(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator<(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator<(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator<(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator<(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QByteArray&,const QString&): base operand class not found.
+ - bool operator<(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator<(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator<(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator<(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator<(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator<(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QChar&,const QChar&): base operand class not found.
+ - bool operator<(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QChar&,const QString&): base operand class not found.
+ - bool operator<(const QChar&,const QStringView&): base operand class not found.
+ - bool operator<(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator<(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator<(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator<(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator<(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QString&,const QChar&): base operand class not found.
+ - bool operator<(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QString&,const QString&): base operand class not found.
+ - bool operator<(const QString&,const char*const&): base operand class not found.
+ - bool operator<(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator<(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator<(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const QStringView&,const QChar&): base operand class not found.
+ - bool operator<(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator<(const QStringView&,const char*const&): base operand class not found.
+ - bool operator<(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator<(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator<(const char*const&,const QString&): base operand class not found.
+ - bool operator<(const char*const&,const QStringView&): base operand class not found.
+ - bool operator<(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator<(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator<(const double&,const qfloat16&): base operand class not found.
+ - bool operator<(const float&,const qfloat16&): base operand class not found.
+ - bool operator<(const long double&,const qfloat16&): base operand class not found.
+ - bool operator<(const long&,const qfloat16&): base operand class not found.
+ - bool operator<(const qfloat16&,const double&): base operand class not found.
+ - bool operator<(const qfloat16&,const float&): base operand class not found.
+ - bool operator<(const qfloat16&,const long double&): base operand class not found.
+ - bool operator<(const qfloat16&,const long&): base operand class not found.
+ - bool operator<(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator<(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator<(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator<(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator<(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator<(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator<(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator<(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator<(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator<(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator<(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator<(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator<(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator<(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator<(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator<(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator<(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator<(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator<(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator<(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator<(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator<(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator<(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator<(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator<(const unsigned long&,const qfloat16&): base operand class not found.
+ - QDataStream& operator<<(QDataStream&,QChar): base operand class not found.
+ - QDataStream& operator<<(QDataStream&,QFlags<Enum>): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QHash<Key, T>, Key, T> operator<<(QDataStream&,const QHash<Key, T>&): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QList<T>, T> operator<<(QDataStream&,const QList<T>&): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QMap<Key, T>, Key, T> operator<<(QDataStream&,const QMap<Key, T>&): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QMultiHash<Key, T>, Key, T> operator<<(QDataStream&,const QMultiHash<Key, T>&): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QMultiMap<Key, T>, Key, T> operator<<(QDataStream&,const QMultiMap<Key, T>&): base operand class not found.
+ - QDataStreamIfHasOStreamOperatorsContainer<QSet<T>, T> operator<<(QDataStream&,const QSet<T>&): base operand class not found.
+ - QDataStream& operator<<(QDataStream&,const QString&): base operand class not found.
+ - typename std::enable_if_t<std::is_enum<T>, ::value, QDataStream &> operator<<(QDataStream&,const T&): base operand class not found.
+ - QDataStreamIfHasOStreamOperators<T1, T2> operator<<(QDataStream&,const std::pair<T1, T2>&): base operand class not found.
+ - bool operator<=(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator<=(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator<=(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator<=(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QString&): base operand class not found.
+ - bool operator<=(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator<=(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator<=(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator<=(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator<=(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator<=(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QChar&,const QChar&): base operand class not found.
+ - bool operator<=(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QChar&,const QString&): base operand class not found.
+ - bool operator<=(const QChar&,const QStringView&): base operand class not found.
+ - bool operator<=(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator<=(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator<=(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator<=(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator<=(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QString&,const QChar&): base operand class not found.
+ - bool operator<=(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QString&,const QString&): base operand class not found.
+ - bool operator<=(const QString&,const char*const&): base operand class not found.
+ - bool operator<=(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator<=(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator<=(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const QStringView&,const QChar&): base operand class not found.
+ - bool operator<=(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator<=(const QStringView&,const char*const&): base operand class not found.
+ - bool operator<=(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator<=(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator<=(const char*const&,const QString&): base operand class not found.
+ - bool operator<=(const char*const&,const QStringView&): base operand class not found.
+ - bool operator<=(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator<=(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator<=(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator<=(const double&,const qfloat16&): base operand class not found.
+ - bool operator<=(const float&,const qfloat16&): base operand class not found.
+ - bool operator<=(const long double&,const qfloat16&): base operand class not found.
+ - bool operator<=(const long&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qfloat16&,const double&): base operand class not found.
+ - bool operator<=(const qfloat16&,const float&): base operand class not found.
+ - bool operator<=(const qfloat16&,const long double&): base operand class not found.
+ - bool operator<=(const qfloat16&,const long&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator<=(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator<=(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator<=(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator<=(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator<=(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator<=(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator<=(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator<=(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator<=(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator<=(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator<=(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator<=(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator<=(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator<=(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator<=(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator<=(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator<=(const unsigned long&,const qfloat16&): base operand class not found.
+ - bool operator==(Enum,QFlags<T>): base operand class not found.
+ - bool operator==(QFlags<T>,Enum): base operand class not found.
+ - bool operator==(QFlags<T>,QFlags<T>): base operand class not found.
+ - bool operator==(QKeyValueIterator<Key, T, Iterator>,QKeyValueIterator<Key, T, Iterator>): base operand class not found.
+ - bool operator==(QPartialOrdering,QPartialOrdering): base operand class not found.
+ - bool operator==(QPartialOrdering,Qt::partial_ordering): base operand class not found.
+ - bool operator==(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator==(QStringTokenizerBase::sentinel,QStringTokenizerBase::sentinel): base operand class not found.
+ - bool operator==(QStringTokenizerBase::sentinel,const QStringTokenizerBase::iterator&): base operand class not found.
+ - bool operator==(QStringTokenizerBaseBase::tokenizer_state,QStringTokenizerBaseBase::tokenizer_state): base operand class not found.
+ - bool operator==(QTaggedPointer<T, Tag>,QTaggedPointer<T, Tag>): base operand class not found.
+ - bool operator==(QTaggedPointer<T, Tag>,std::nullptr_t): base operand class not found.
+ - bool operator==(Qt::partial_ordering,QPartialOrdering): base operand class not found.
+ - bool operator==(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator==(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator==(const QArrayDataPointer<T>&,const QArrayDataPointer<T>&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator==(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator==(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator==(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QByteArray&,const QString&): base operand class not found.
+ - bool operator==(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator==(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator==(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator==(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator==(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator==(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QChar&,const QChar&): base operand class not found.
+ - bool operator==(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QChar&,const QString&): base operand class not found.
+ - bool operator==(const QChar&,const QStringView&): base operand class not found.
+ - bool operator==(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator==(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator==(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator==(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator==(const QMetaAssociation&,const QMetaAssociation&): base operand class not found.
+ - bool operator==(const QMetaSequence&,const QMetaSequence&): base operand class not found.
+ - bool operator==(const QScopedPointer<T, Cleanup>&,const QScopedPointer<T, Cleanup>&): base operand class not found.
+ - bool operator==(const QScopedPointer<T, Cleanup>&,std::nullptr_t): base operand class not found.
+ - bool operator==(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QString&,const QChar&): base operand class not found.
+ - bool operator==(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QString&,const QString&): base operand class not found.
+ - bool operator==(const QString&,const char*const&): base operand class not found.
+ - bool operator==(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator==(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator==(const QStringTokenizerBase::iterator&,QStringTokenizerBase::sentinel): base operand class not found.
+ - bool operator==(const QStringTokenizerBase::iterator&,const QStringTokenizerBase::iterator&): base operand class not found.
+ - bool operator==(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const QStringView&,const QChar&): base operand class not found.
+ - bool operator==(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator==(const QStringView&,const char*const&): base operand class not found.
+ - bool operator==(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator==(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator==(const char*const&,const QString&): base operand class not found.
+ - bool operator==(const char*const&,const QStringView&): base operand class not found.
+ - bool operator==(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator==(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator==(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator==(const double&,const qfloat16&): base operand class not found.
+ - bool operator==(const float&,const qfloat16&): base operand class not found.
+ - bool operator==(const long double&,const qfloat16&): base operand class not found.
+ - bool operator==(const long&,const qfloat16&): base operand class not found.
+ - bool operator==(const qfloat16&,const double&): base operand class not found.
+ - bool operator==(const qfloat16&,const float&): base operand class not found.
+ - bool operator==(const qfloat16&,const long double&): base operand class not found.
+ - bool operator==(const qfloat16&,const long&): base operand class not found.
+ - bool operator==(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator==(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator==(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator==(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator==(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator==(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator==(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator==(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator==(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator==(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator==(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator==(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator==(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator==(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator==(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator==(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator==(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator==(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator==(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator==(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator==(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator==(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator==(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator==(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator==(const unsigned long&,const qfloat16&): base operand class not found.
+ - bool operator==(std::nullptr_t,QTaggedPointer<T, Tag>): base operand class not found.
+ - bool operator==(std::nullptr_t,const QScopedPointer<T, Cleanup>&): base operand class not found.
+ - bool operator>(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator>(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator>(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator>(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator>(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator>(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QByteArray&,const QString&): base operand class not found.
+ - bool operator>(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator>(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator>(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator>(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator>(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator>(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QChar&,const QChar&): base operand class not found.
+ - bool operator>(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QChar&,const QString&): base operand class not found.
+ - bool operator>(const QChar&,const QStringView&): base operand class not found.
+ - bool operator>(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator>(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator>(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator>(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator>(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QString&,const QChar&): base operand class not found.
+ - bool operator>(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QString&,const QString&): base operand class not found.
+ - bool operator>(const QString&,const char*const&): base operand class not found.
+ - bool operator>(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator>(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator>(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const QStringView&,const QChar&): base operand class not found.
+ - bool operator>(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator>(const QStringView&,const char*const&): base operand class not found.
+ - bool operator>(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator>(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator>(const char*const&,const QString&): base operand class not found.
+ - bool operator>(const char*const&,const QStringView&): base operand class not found.
+ - bool operator>(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator>(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator>(const double&,const qfloat16&): base operand class not found.
+ - bool operator>(const float&,const qfloat16&): base operand class not found.
+ - bool operator>(const long double&,const qfloat16&): base operand class not found.
+ - bool operator>(const long&,const qfloat16&): base operand class not found.
+ - bool operator>(const qfloat16&,const double&): base operand class not found.
+ - bool operator>(const qfloat16&,const float&): base operand class not found.
+ - bool operator>(const qfloat16&,const long double&): base operand class not found.
+ - bool operator>(const qfloat16&,const long&): base operand class not found.
+ - bool operator>(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator>(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator>(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator>(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator>(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator>(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator>(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator>(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator>(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator>(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator>(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator>(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator>(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator>(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator>(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator>(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator>(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator>(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator>(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator>(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator>(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator>(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator>(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator>(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator>(const unsigned long&,const qfloat16&): base operand class not found.
+ - bool operator>=(QPartialOrdering,QtPrivate::CompareAgainstLiteralZero): base operand class not found.
+ - bool operator>=(QtPrivate::CompareAgainstLiteralZero,QPartialOrdering): base operand class not found.
+ - bool operator>=(const QAnyStringView&,const QAnyStringView&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const QChar&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const QStringView&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const char*const&): base operand class not found.
+ - bool operator>=(const QBasicUtf8StringView<>&,const char16_t&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QChar&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QString&): base operand class not found.
+ - bool operator>=(const QByteArray&,const QStringView&): base operand class not found.
+ - bool operator>=(const QByteArray&,const char*const&): base operand class not found.
+ - bool operator>=(const QByteArray&,const char16_t&): base operand class not found.
+ - bool operator>=(const QByteArray&,const std::nullptr_t&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QChar&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QString&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const QStringView&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const char*const&): base operand class not found.
+ - bool operator>=(const QByteArrayView&,const char16_t&): base operand class not found.
+ - bool operator>=(const QChar&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QChar&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QChar&,const QChar&): base operand class not found.
+ - bool operator>=(const QChar&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QChar&,const QString&): base operand class not found.
+ - bool operator>=(const QChar&,const QStringView&): base operand class not found.
+ - bool operator>=(const QChar&,const std::nullptr_t&): base operand class not found.
+ - bool operator>=(const QLatin1Char&,const QLatin1Char&): base operand class not found.
+ - bool operator>=(const QLatin1Char&,const char&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QChar&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QString&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const QStringView&): base operand class not found.
+ - bool operator>=(const QLatin1StringView&,const char*const&): base operand class not found.
+ - bool operator>=(const QString&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QString&,const QChar&): base operand class not found.
+ - bool operator>=(const QString&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QString&,const QString&): base operand class not found.
+ - bool operator>=(const QString&,const char*const&): base operand class not found.
+ - bool operator>=(const QString&,const char16_t*const&): base operand class not found.
+ - bool operator>=(const QString&,const std::nullptr_t&): base operand class not found.
+ - bool operator>=(const QStringView&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const QStringView&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const QStringView&,const QChar&): base operand class not found.
+ - bool operator>=(const QStringView&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const QStringView&,const QStringView&): base operand class not found.
+ - bool operator>=(const QStringView&,const char*const&): base operand class not found.
+ - bool operator>=(const char&,const QLatin1Char&): base operand class not found.
+ - bool operator>=(const char*const&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const char*const&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const char*const&,const QLatin1StringView&): base operand class not found.
+ - bool operator>=(const char*const&,const QString&): base operand class not found.
+ - bool operator>=(const char*const&,const QStringView&): base operand class not found.
+ - bool operator>=(const char16_t&,const QBasicUtf8StringView<>&): base operand class not found.
+ - bool operator>=(const char16_t&,const QByteArrayView&): base operand class not found.
+ - bool operator>=(const char16_t*const&,const QString&): base operand class not found.
+ - bool operator>=(const double&,const qfloat16&): base operand class not found.
+ - bool operator>=(const float&,const qfloat16&): base operand class not found.
+ - bool operator>=(const long double&,const qfloat16&): base operand class not found.
+ - bool operator>=(const long&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qfloat16&,const double&): base operand class not found.
+ - bool operator>=(const qfloat16&,const float&): base operand class not found.
+ - bool operator>=(const qfloat16&,const long double&): base operand class not found.
+ - bool operator>=(const qfloat16&,const long&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qint128&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qint16&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qint32&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qint64&): base operand class not found.
+ - bool operator>=(const qfloat16&,const qint8&): base operand class not found.
+ - bool operator>=(const qfloat16&,const quint128&): base operand class not found.
+ - bool operator>=(const qfloat16&,const quint16&): base operand class not found.
+ - bool operator>=(const qfloat16&,const quint32&): base operand class not found.
+ - bool operator>=(const qfloat16&,const quint64&): base operand class not found.
+ - bool operator>=(const qfloat16&,const quint8&): base operand class not found.
+ - bool operator>=(const qfloat16&,const unsigned long&): base operand class not found.
+ - bool operator>=(const qint128&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qint16&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qint32&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qint64&,const qfloat16&): base operand class not found.
+ - bool operator>=(const qint8&,const qfloat16&): base operand class not found.
+ - bool operator>=(const quint128&,const qfloat16&): base operand class not found.
+ - bool operator>=(const quint16&,const qfloat16&): base operand class not found.
+ - bool operator>=(const quint32&,const qfloat16&): base operand class not found.
+ - bool operator>=(const quint64&,const qfloat16&): base operand class not found.
+ - bool operator>=(const quint8&,const qfloat16&): base operand class not found.
+ - bool operator>=(const std::nullptr_t&,const QChar&): base operand class not found.
+ - bool operator>=(const std::nullptr_t&,const QString&): base operand class not found.
+ - bool operator>=(const unsigned long&,const qfloat16&): base operand class not found.
+ - QDataStream& operator>>(QDataStream&,QChar&): base operand class not found.
+ - QDataStream& operator>>(QDataStream&,QFlags<Enum>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QHash<Key, T>, Key, T> operator>>(QDataStream&,QHash<Key, T>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QList<T>, T> operator>>(QDataStream&,QList<T>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QMap<Key, T>, Key, T> operator>>(QDataStream&,QMap<Key, T>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QMultiHash<Key, T>, Key, T> operator>>(QDataStream&,QMultiHash<Key, T>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QMultiMap<Key, T>, Key, T> operator>>(QDataStream&,QMultiMap<Key, T>&): base operand class not found.
+ - QDataStreamIfHasIStreamOperatorsContainer<QSet<T>, T> operator>>(QDataStream&,QSet<T>&): base operand class not found.
+ - QDataStream& operator>>(QDataStream&,QString&): base operand class not found.
+ - typename std::enable_if_t<std::is_enum<T>, ::value, QDataStream &> operator>>(QDataStream&,T&): base operand class not found.
+ - QDataStreamIfHasIStreamOperators<T1, T2> operator>>(QDataStream&,std::pair<T1, T2>&): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator^(QFlags::enum_type<QArrayData::ArrayOption>,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator^(QFlags::enum_type<QArrayData::ArrayOption>,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator^(QFlags::enum_type<QByteArray::Base64Option>,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator^(QFlags::enum_type<QByteArray::Base64Option>,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator^(QFlags::enum_type<QMetaType::TypeFlag>,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator^(QFlags::enum_type<QMetaType::TypeFlag>,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator^(QFlags::enum_type<QString::SectionFlag>,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator^(QFlags::enum_type<QString::SectionFlag>,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator^(QFlags::enum_type<QStringConverterBase::Flag>,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator^(QFlags::enum_type<QStringConverterBase::Flag>,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator|(QFlags::enum_type<QArrayData::ArrayOption>,QFlags::enum_type<QArrayData::ArrayOption>): base operand class not found.
+ - QFlags<QFlags::enum_type<QArrayData::ArrayOption> > operator|(QFlags::enum_type<QArrayData::ArrayOption>,QFlags<QFlags::enum_type<QArrayData::ArrayOption> >): base operand class not found.
+ - QIncompatibleFlag operator|(QFlags::enum_type<QArrayData::ArrayOption>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator|(QFlags::enum_type<QByteArray::Base64Option>,QFlags::enum_type<QByteArray::Base64Option>): base operand class not found.
+ - QFlags<QFlags::enum_type<QByteArray::Base64Option> > operator|(QFlags::enum_type<QByteArray::Base64Option>,QFlags<QFlags::enum_type<QByteArray::Base64Option> >): base operand class not found.
+ - QIncompatibleFlag operator|(QFlags::enum_type<QByteArray::Base64Option>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator|(QFlags::enum_type<QMetaType::TypeFlag>,QFlags::enum_type<QMetaType::TypeFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QMetaType::TypeFlag> > operator|(QFlags::enum_type<QMetaType::TypeFlag>,QFlags<QFlags::enum_type<QMetaType::TypeFlag> >): base operand class not found.
+ - QIncompatibleFlag operator|(QFlags::enum_type<QMetaType::TypeFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator|(QFlags::enum_type<QString::SectionFlag>,QFlags::enum_type<QString::SectionFlag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QString::SectionFlag> > operator|(QFlags::enum_type<QString::SectionFlag>,QFlags<QFlags::enum_type<QString::SectionFlag> >): base operand class not found.
+ - QIncompatibleFlag operator|(QFlags::enum_type<QString::SectionFlag>,int): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator|(QFlags::enum_type<QStringConverterBase::Flag>,QFlags::enum_type<QStringConverterBase::Flag>): base operand class not found.
+ - QFlags<QFlags::enum_type<QStringConverterBase::Flag> > operator|(QFlags::enum_type<QStringConverterBase::Flag>,QFlags<QFlags::enum_type<QStringConverterBase::Flag> >): base operand class not found.
+ - QIncompatibleFlag operator|(QFlags::enum_type<QStringConverterBase::Flag>,int): base operand class not found.

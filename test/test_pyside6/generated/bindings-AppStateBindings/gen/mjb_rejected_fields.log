@@ -1,0 +1,10 @@
+**********************************
+Generation disabled by type system
+**********************************
+
+ - AppState::staticMetaObject -> const QMetaObject: matches class "^.*$" and "^staticMetaObject$"
+ - QMetaObject::d -> QMetaObject::Data: matches class "^.*$" and "^d$"
+ - QObject::d_ptr -> QScopedPointer<QObjectData>: matches class "^.*$" and "^d_ptr$"
+ - QObject::staticMetaObject -> const QMetaObject: matches class "^.*$" and "^staticMetaObject$"
+ - Qt::Disambiguated -> const Qt::Disambiguated_t: matches class "^Qt$" and "^Disambiguated$"
+ - Qt::staticMetaObject -> const QMetaObject: matches class "^.*$" and "^staticMetaObject$"

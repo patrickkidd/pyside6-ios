@@ -16,6 +16,15 @@
 #include "qtbridge.h"
 
 Q_IMPORT_PLUGIN(QIOSIntegrationPlugin)
+Q_IMPORT_PLUGIN(QtQuick2Plugin)
+Q_IMPORT_PLUGIN(QtQuickControls2Plugin)
+Q_IMPORT_PLUGIN(QtQuickControls2BasicStylePlugin)
+Q_IMPORT_PLUGIN(QtQuickControls2BasicStyleImplPlugin)
+Q_IMPORT_PLUGIN(QtQuickControls2ImplPlugin)
+Q_IMPORT_PLUGIN(QtQuickTemplates2Plugin)
+Q_IMPORT_PLUGIN(QtQuickLayoutsPlugin)
+Q_IMPORT_PLUGIN(QmlShapesPlugin)
+Q_IMPORT_PLUGIN(QtQuick_WindowPlugin)
 
 // Defined in qtbridge.mm
 extern void qtbridge_setApp(QGuiApplication *app);
@@ -86,6 +95,9 @@ static void runPythonApp() {
 
     // Init Python
     initPython();
+
+    // Force Basic style (iOS style plugin not linked into QtRuntime)
+    qputenv("QT_QUICK_CONTROLS_STYLE", "Basic");
 
     // Init Qt
     static int argc = 1;

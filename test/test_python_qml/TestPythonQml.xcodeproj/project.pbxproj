@@ -57,7 +57,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "QT_IOS=\"$HOME/dev/lib/Qt-6/6.8.3/ios\"\nmkdir -p \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml\"\nfor mod in QtQuick QtQml QtCore; do\n    if [ -d \"$QT_IOS/qml/$mod\" ]; then\n        cp -R \"$QT_IOS/qml/$mod\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml/\"\n    fi\ndone\n";
+			shellScript = "QT_IOS=\"$HOME/dev/lib/Qt-6/6.8.3/ios\"\nmkdir -p \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml\"\nfor mod in QtQuick QtQml QtCore Qt; do\n    if [ -d \"$QT_IOS/qml/$mod\" ]; then\n        cp -R \"$QT_IOS/qml/$mod\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/qml/\"\n    fi\ndone\n# Copy app QML files\ncp -f \"$PROJECT_DIR/\"*.qml \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/\"\n";
 		};
 		B5000004 /* Copy Python Stdlib */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -260,10 +260,34 @@
 					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/include",
 					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64/include/python3.13",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/Basic",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/Basic/impl",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/impl",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Templates",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Layouts",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Shapes",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Window",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(inherited)",
 					"-iframework",
 					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lqtquick2plugin",
+					"-lqtquickcontrols2plugin",
+					"-lqtquickcontrols2basicstyleplugin",
+					"-lqtquickcontrols2basicstyleimplplugin",
+					"-lqtquickcontrols2implplugin",
+					"-lqtquicktemplates2plugin",
+					"-lqquicklayoutsplugin",
+					"-lqmlshapesplugin",
+					"-lquickwindowplugin",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,10 +316,34 @@
 					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/include",
 					"$(PROJECT_DIR)/../../build/python/Python.xcframework/ios-arm64/include/python3.13",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/Basic",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/Basic/impl",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Controls/impl",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Templates",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Layouts",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Shapes",
+					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/qml/QtQuick/Window",
+				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(inherited)",
 					"-iframework",
 					"$(HOME)/dev/lib/Qt-6/6.8.3/ios/lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lqtquick2plugin",
+					"-lqtquickcontrols2plugin",
+					"-lqtquickcontrols2basicstyleplugin",
+					"-lqtquickcontrols2basicstyleimplplugin",
+					"-lqtquickcontrols2implplugin",
+					"-lqtquicktemplates2plugin",
+					"-lqquicklayoutsplugin",
+					"-lqmlshapesplugin",
+					"-lquickwindowplugin",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

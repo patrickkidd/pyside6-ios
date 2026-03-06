@@ -1,5 +1,6 @@
 # Build artifacts (all regeneratable)
 build/
+uv.lock
 
 # Python
 .venv/

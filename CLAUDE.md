@@ -42,10 +42,13 @@ Maintain `decisions/log.md`. **Triggers**: "I've decided...", "I'm going to...",
 ## Documentation Index
 
 - `doc/pyside6-ios-solution.md` — Original project context: problem statement, solution architecture, and rationale for the QtRuntime.framework approach
+- `doc/build-tool-reference.md` — Build tool config reference, commands, bundle layout, build phases
+- `doc/porting-cookbook.md` — Step-by-step guide for porting an existing PySide6 app to iOS
 
 ## Development Rules
 
 - Always ensure that there is test coverage for new code.
+- **Never commit or push** unless Patrick explicitly asks.
 
 ## Development Commands
 

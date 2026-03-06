@@ -1,0 +1,6 @@
+******************
+Not in type system
+******************
+
+ - Q_DUMMY_TYPE: /Users/patrick/dev/lib/Qt-6/6.8.3/macos/lib/QtCore.framework/Headers/qtypeinfo.h:152:	Anonymous enum (Q_COMPLEX_TYPE, ... , Q_DUMMY_TYPE) does not have a type entry (type systems: AppStateBindings, PySide6.QtCore)
+ - Qt::Initialization: /Users/patrick/dev/lib/Qt-6/6.8.3/macos/lib/QtCore.framework/Headers/qnamespace.h:1595:	Scoped enum 'Qt::Initialization' (class: Qt) does not have a type entry (type systems: AppStateBindings, PySide6.QtCore)

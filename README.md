@@ -57,33 +57,14 @@ aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
 ./scripts/build_pyside6_module.sh QtQml
 ./scripts/build_pyside6_module.sh QtQuick
 
-# 3. Open Xcode project, build and deploy to device
-open test/test_pyside6/TestPySide6.xcodeproj
-```
+# 3. Generate Xcode project and build
+uv run pyside6-ios -c test/test_pyside6/pyside6-ios.toml generate
+cd test/test_pyside6/generated
+xcodebuild -project TestPySide6.xcodeproj -scheme TestPySide6 \
+  -destination 'generic/platform=iOS' build
 
-## Repository Structure
-
-```
-scripts/
-  build_qtruntime.sh          Merge Qt static libs into QtRuntime.framework
-  build_pyside6_module.sh     Shiboken generation + cross-compile per module
-  globalize_symbols.py        Clear N_PEXT bit for hidden-visibility re-export
-  hb_stubs.cpp                Harfbuzz graph stubs (unused font subsetting)
-
-test/
-  test_pyside6/               M5: Full PySide6 QML app on iPhone
-    main.mm                   Host app (ObjC++): Python + Qt init, UIView reparenting
-    main.qml                  QML UI with touch interaction
-    scripts/app.py            Python app using PySide6.QtQml
-    packages/                 shiboken6 + PySide6 package stubs for iOS
-  test_python_qml/            M4b: Python drives QML via C bridge
-  test_qml/                   M2/M3: C++ QML app (no Python)
-  test_qtruntime/             M1: Minimal QtRuntime.framework validation
-
-doc/
-  report-qt-company.md        Full technical report for pyside6-deploy authors
-  pyside6-ios-solution.md     Original problem analysis and architecture
-  plan.md                     Milestone tracking and design decisions
+# Or open in Xcode for debugging on device
+open TestPySide6.xcodeproj
 ```
 
 ## Key Technical Details
@@ -116,6 +97,57 @@ All milestones complete. See [doc/plan.md](doc/plan.md).
 | M4b | Python drives QML via C bridge | Done |
 | M4c | Cross-compile PySide6 QtCore for iOS | Done |
 | M5 | Full PySide6 QML app on iPhone | Done |
+
+## Repository Structure
+
+```
+scripts/
+  build_qtruntime.sh          Merge Qt static libs into QtRuntime.framework
+  build_pyside6_module.sh     Shiboken generation + cross-compile per module
+  globalize_symbols.py        Clear N_PEXT bit for hidden-visibility re-export
+
+test/
+  test_pyside6/               Full PySide6 QML app on iPhone (M5)
+    pyside6-ios.toml          Build config for Xcode project generation
+    main.mm                   Host app (ObjC++): Python + Qt init, UIView reparenting
+    qml/                      QML UI (SwipeView with controls, lists, info)
+  test_python_qml/            M4b: Python drives QML via C bridge
+  test_qml/                   M2/M3: C++ QML app (no Python)
+  test_qtruntime/             M1: Minimal QtRuntime.framework validation
+
+src/pyside6_ios/              Build tool (see below)
+tests/                        Build tool unit tests
+
+doc/
+  report-qt-company.md        Full technical report for pyside6-deploy authors
+  pyside6-ios-solution.md     Original problem analysis and architecture
+```
+
+## Build Tool
+
+The `pyside6-ios` CLI generates Xcode projects from a TOML config file. Step 3
+above uses it. This handles all the iOS-specific build complexity: framework
+linking, Python stdlib bundling, QML plugin static registration, code signing,
+etc.
+
+```bash
+# Install (editable, from repo root)
+uv pip install -e .
+
+# Commands
+pyside6-ios -c path/to/pyside6-ios.toml generate   # Generate .xcodeproj
+pyside6-ios -c path/to/pyside6-ios.toml build       # Generate + xcodebuild
+pyside6-ios -c path/to/pyside6-ios.toml clean       # Remove output dir
+```
+
+Documentation:
+- **[doc/build-tool-reference.md](doc/build-tool-reference.md)** — config file reference, commands, bundle layout
+- **[doc/porting-cookbook.md](doc/porting-cookbook.md)** — step-by-step guide for porting an existing app
+- **[test/test_pyside6/pyside6-ios.toml](test/test_pyside6/pyside6-ios.toml)** — working example config
+
+```bash
+uv run pytest tests/ -v
+```
 
 ## References
 

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<typesystem package="AppStateBindings">
+    <load-typesystem name="QtCore/typesystem_core_common.xml" generate="no"/>
+    <object-type name="AppState"/>
+</typesystem>
