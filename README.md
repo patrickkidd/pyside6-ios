@@ -25,48 +25,6 @@ See **[doc/report-qt-company.md](doc/report-qt-company.md)** for the full
 technical report: root cause analysis, every pitfall encountered, and what
 `pyside6-deploy` needs to change to support iOS.
 
-## Prerequisites
-
-- macOS (Apple Silicon)
-- Xcode 16+ with iOS 16.0+ SDK
-- Qt 6.8.3 iOS + macOS SDKs
-- CPython 3.13 iOS framework ([BeeWare Python-Apple-support](https://github.com/beeware/Python-Apple-support))
-- PySide6 6.8.3 source (`pyside-setup`)
-- shiboken6-generator (PyPI, runs on macOS host)
-- `uv` for Python environment management
-
-### Install Qt 6.8.3
-
-```bash
-uv venv .venv && source .venv/bin/activate
-uv pip install aqtinstall
-aqt install-qt mac ios 6.8.3 --outputdir ~/dev/lib/Qt-6
-aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
-```
-
-## Build
-
-```bash
-# 1. Build QtRuntime.framework (all Qt static libs → one dynamic framework)
-./scripts/build_qtruntime.sh
-
-# 2. Cross-compile PySide6 modules for iOS arm64
-./scripts/build_pyside6_module.sh QtCore
-./scripts/build_pyside6_module.sh QtGui
-./scripts/build_pyside6_module.sh QtNetwork
-./scripts/build_pyside6_module.sh QtQml
-./scripts/build_pyside6_module.sh QtQuick
-
-# 3. Generate Xcode project and build
-uv run pyside6-ios -c test/test_pyside6/pyside6-ios.toml generate
-cd test/test_pyside6/generated
-xcodebuild -project TestPySide6.xcodeproj -scheme TestPySide6 \
-  -destination 'generic/platform=iOS' build
-
-# Or open in Xcode for debugging on device
-open TestPySide6.xcodeproj
-```
-
 ## Key Technical Details
 
 The report covers these in depth, but briefly:
@@ -84,19 +42,83 @@ The report covers these in depth, but briefly:
 - **qt-inside-ios-native** — host app owns `UIApplicationMain`; Qt uses
   `QIOSEventDispatcher` (non-jumping) to integrate with `CFRunLoop`
 
-## Status
+## Non-Happy Path Architecture Support
 
-All milestones complete. See [doc/plan.md](doc/plan.md).
+The demo app (`test/test_pyside6`) exercises every non-trivial integration
+pattern needed for a production app:
 
-| Milestone | Description | Status |
-|-----------|-------------|--------|
-| M1 | QtRuntime.framework builds and loads | Done |
-| M2 | QML window on simulator (C++ only) | Done |
-| M3 | QML window on physical iPhone | Done |
-| M4a | Embed Python.framework alongside Qt | Done |
-| M4b | Python drives QML via C bridge | Done |
-| M4c | Cross-compile PySide6 QtCore for iOS | Done |
-| M5 | Full PySide6 QML app on iPhone | Done |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| QtRuntime.framework | All Qt static libs merged into one dynamic framework | Done |
+| PySide6 static modules | QtCore, QtGui, QtNetwork, QtQml, QtQuick cross-compiled | Done |
+| Python stdlib | CPython 3.13 iOS framework with stdlib + lib-dynload | Done |
+| QML UI | 9-tab controls showcase (buttons, input, selection, indicators, navigation, dialogs, lists, animation, info) | Done |
+| App packages | Python source packages bundled and importable | Done |
+| Vendor packages | Third-party pure-Python deps (dateutil) vendored | Done |
+| Custom C++ sources | ObjC++/C++ files compiled by Xcode (`deviceinfo.mm`) | Done |
+| MOC auto-detection | Headers with `Q_OBJECT` auto-processed by moc | Done |
+| Shiboken6 bindings | Custom C++ class (`AppState`) exposed to Python | Done |
+| Python virtual override | Python subclass overrides C++ virtual, used in QML | Done |
+| Resources | Fonts, images, Settings.bundle, Assets.xcassets | Done |
+| Code signing | Automatic signing + entitlements | Done |
+| Device deployment | CLI build + install via `xcrun devicectl` | Done |
+
+See also [doc/plan.md](doc/plan.md) for the original milestone progression
+(M1–M5).
+
+## TL;DR — Demo on your iPhone
+
+### Prerequisites (one-time, ~30 min)
+
+1. macOS (Apple Silicon) with Xcode 16+ from the App Store
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+3. Install Qt 6.8.3 iOS + macOS SDKs:
+   ```bash
+   uv venv .venv && source .venv/bin/activate
+   uv pip install aqtinstall
+   aqt install-qt mac ios 6.8.3 --outputdir ~/dev/lib/Qt-6
+   aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
+   ```
+4. Download [CPython 3.13 iOS framework](https://github.com/beeware/Python-Apple-support/releases) and extract to `build/python/`
+5. Clone [pyside-setup](https://code.qt.io/cgit/pyside/pyside-setup.git/) sources to `build/pyside-setup/`
+6. Install shiboken6-generator: `uv pip install shiboken6-generator`
+
+### Build and deploy
+
+**Manual step** — Connect your iPhone via USB and trust the computer.
+
+```bash
+# Install the build tool
+uv pip install -e .
+
+# Build QtRuntime.framework (~5 min first time)
+./scripts/build_qtruntime.sh
+
+# Cross-compile PySide6 modules (~10 min first time)
+for mod in QtCore QtGui QtNetwork QtQml QtQuick; do
+    ./scripts/build_pyside6_module.sh $mod
+done
+
+# Find your device UUID
+xcrun devicectl list devices
+
+# Build, deploy to your iPhone
+cd test/test_pyside6
+uv run pyside6-ios -c pyside6-ios.toml build \
+    --configuration Debug \
+    --destination 'id=YOUR_DEVICE_UUID' \
+    --install
+
+# Launch with console output
+xcrun devicectl device process launch \
+    --device YOUR_DEVICE_UUID \
+    --console com.alaskafamilysystems.test-pyside6
+```
+
+**Manual step** — If this is your first deploy, you may need to trust the
+developer certificate on the device: Settings > General > VPN & Device
+Management > tap your developer profile > Trust.
+
 
 ## Repository Structure
 
@@ -125,19 +147,14 @@ doc/
 
 ## Build Tool
 
-The `pyside6-ios` CLI generates Xcode projects from a TOML config file. Step 3
-above uses it. This handles all the iOS-specific build complexity: framework
-linking, Python stdlib bundling, QML plugin static registration, code signing,
-etc.
+The `pyside6-ios` CLI generates Xcode projects from a TOML config file. It
+handles framework linking, Python stdlib bundling, QML plugin static
+registration, shiboken6 custom bindings, code signing, and device deployment.
 
 ```bash
-# Install (editable, from repo root)
-uv pip install -e .
-
-# Commands
-pyside6-ios -c path/to/pyside6-ios.toml generate   # Generate .xcodeproj
-pyside6-ios -c path/to/pyside6-ios.toml build       # Generate + xcodebuild
-pyside6-ios -c path/to/pyside6-ios.toml clean       # Remove output dir
+pyside6-ios -c config.toml generate              # Generate .xcodeproj
+pyside6-ios -c config.toml build --install        # Generate + build + deploy
+pyside6-ios -c config.toml clean                  # Remove output dir
 ```
 
 Documentation:
