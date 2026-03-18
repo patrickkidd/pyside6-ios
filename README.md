@@ -74,20 +74,26 @@ See also [doc/initial-plan.md](doc/initial-plan.md) for the original milestone p
 
 ## TL;DR — Demo on your iPhone
 
-### Prerequisites (one-time, ~30 min)
+### Prerequisites
 
-1. macOS (Apple Silicon) with Xcode 16+ from the App Store
-2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-3. Install Qt 6.8.3 iOS + macOS SDKs:
-   ```bash
-   uv venv .venv && source .venv/bin/activate
-   uv pip install aqtinstall
-   aqt install-qt mac ios 6.8.3 --outputdir ~/dev/lib/Qt-6
-   aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
-   ```
-4. Download [CPython 3.13 iOS framework](https://github.com/beeware/Python-Apple-support/releases) and extract to `build/python/`
-5. Clone [pyside-setup](https://code.qt.io/cgit/pyside/pyside-setup.git/) sources to `build/pyside-setup/`
-6. Install shiboken6-generator: `uv pip install shiboken6-generator`
+Requires macOS (Apple Silicon), Xcode 16+, and [uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+```bash
+# Python environment
+uv venv .venv --python 3.13 && source .venv/bin/activate
+uv pip install aqtinstall shiboken6-generator==6.8.3
+
+# Qt 6.8.3 iOS + macOS SDKs
+mkdir -p ~/dev/lib/Qt-6
+aqt install-qt mac ios 6.8.3 --outputdir ~/dev/lib/Qt-6
+aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
+
+# CPython 3.13 iOS framework (pre-built CPython via PEP 730, no third-party code)
+mkdir -p build/python && curl -L https://github.com/beeware/Python-Apple-support/releases/download/3.13-b13/Python-3.13-iOS-support.b13.tar.gz | tar -xz -C build/python/
+
+# PySide6 sources
+git clone --branch v6.8.3 https://code.qt.io/pyside/pyside-setup.git build/pyside-setup
+```
 
 ### Build and deploy
 

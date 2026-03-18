@@ -12,7 +12,7 @@ PYSIDE6_SRC="$PYSIDE_SRC/PySide6"
 LIBSHIBOKEN_SRC="$ROOT/build/pyside-setup/sources/shiboken6/libshiboken"
 LIBPYSIDE_SRC="$PYSIDE_SRC/libpyside"
 LIBPYSIDEQML_SRC="$PYSIDE_SRC/libpysideqml"
-SHIBOKEN6="$ROOT/.venv/lib/python3.14/site-packages/shiboken6_generator/shiboken6"
+SHIBOKEN6="$(python3 -c "import shiboken6_generator; print(shiboken6_generator.__path__[0])")/shiboken6"
 PYTHON_FW="$ROOT/build/python/Python.xcframework/ios-arm64/Python.framework"
 
 GEN_DIR="$ROOT/build/pyside6-ios-gen/PySide6/$MODULE"
@@ -38,6 +38,11 @@ EXTRA_INCLUDE_DIRS=()
 EXTRA_SOURCES=()
 
 case "$MODULE" in
+    QtCore)
+        TYPESYSTEM_XML="$PYSIDE6_SRC/QtCore/typesystem_core.xml"
+        EXTRA_SHIBOKEN_FLAGS+=("--drop-type-entries=QProcess;QProcess::UnixProcessParameters")
+        EXTRA_CXXFLAGS+=(-I "$PYSIDE6_SRC/QtCore")
+        ;;
     QtNetwork)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtNetwork/typesystem_network.xml"
         EXTRA_SHIBOKEN_FLAGS+=("--drop-type-entries=QDtls;QDtlsClientVerifier;QDtlsClientVerifier::GeneratorParameters;QDtlsError")
@@ -101,6 +106,21 @@ case "$MODULE" in
         ;;
     *) echo "Unknown module: $MODULE"; exit 1 ;;
 esac
+
+# Phase 0: Generate sbkversion.h if missing (CMake template)
+SBKVERSION_H="$LIBSHIBOKEN_SRC/sbkversion.h"
+if [ ! -f "$SBKVERSION_H" ]; then
+    echo "==> Generating sbkversion.h from template"
+    PYVER=$(grep "^Python version:" "$ROOT/build/python/VERSIONS" | sed 's/Python version: //')
+    PY_MAJOR=${PYVER%%.*}; PYREST=${PYVER#*.}; PY_MINOR=${PYREST%%.*}; PY_PATCH=${PYREST#*.}; PY_PATCH=${PY_PATCH%% *}
+    sed -e "s/@shiboken_MAJOR_VERSION@/6/g" \
+        -e "s/@shiboken_MINOR_VERSION@/8/g" \
+        -e "s/@shiboken_MICRO_VERSION@/3/g" \
+        -e "s/@Python_VERSION_MAJOR@/$PY_MAJOR/g" \
+        -e "s/@Python_VERSION_MINOR@/$PY_MINOR/g" \
+        -e "s/@Python_VERSION_PATCH@/$PY_PATCH/g" \
+        "$LIBSHIBOKEN_SRC/sbkversion.h.in" > "$SBKVERSION_H"
+fi
 
 # Phase 1: Global header
 echo "==> Phase 1: Generating ${MODULE}_global.h"

@@ -2,10 +2,8 @@
 name = "pyside6-ios"
 version = "0.1.0"
 description = "Build tool for PySide6 iOS apps"
-requires-python = ">=3.11"
-dependencies = [
-    "tomli>=2.0; python_version < '3.11'",
-]
+requires-python = ">=3.13,<3.14"
+dependencies = []
 
 [project.scripts]
 pyside6-ios = "pyside6_ios.cli:main"
