@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from pyside6_ios import config, mainmm, moc, pbxproj, shiboken, signing, xcodebuild
+from pyside6_ios.config import AppConfig
 
 
 def cmd_generate(args):

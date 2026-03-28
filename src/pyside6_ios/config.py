@@ -202,7 +202,7 @@ def load(toml_path: str | Path) -> AppConfig:
     defines = raw.get("defines", {})
 
     pyside6_ios_path = _resolve(project_root, paths.get("pyside6-ios", ""))
-    qt_ios_path = _resolve(project_root, paths.get("qt-ios", ""))
+    qt_ios_path = _resolve(project_root, os.environ.get("QT_IOS", paths.get("qt-ios", "")))
 
     package_entries = []
     for p in python.get("packages", []):

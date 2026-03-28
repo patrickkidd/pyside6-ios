@@ -78,26 +78,42 @@ See also [doc/initial-plan.md](doc/initial-plan.md) for the original milestone p
 
 Requires macOS (Apple Silicon), Xcode 16+, and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
+Set the Qt and PySide6 versions you want to use. Tested with 6.8.3; other 6.x
+versions should work if a matching `shiboken6-generator` exists on PyPI.
+
 ```bash
+# --- Set versions ---
+QT_VERSION=6.8.3        # Qt SDK version to install
+PYSIDE_VERSION=6.8.3    # Must match a shiboken6-generator release on PyPI
+
+# Ensure xcode-select points at Xcode (not standalone Command Line Tools)
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
 # Python environment
 uv venv .venv --python 3.13 && source .venv/bin/activate
-uv pip install aqtinstall shiboken6-generator==6.8.3
+uv pip install aqtinstall shiboken6-generator==$PYSIDE_VERSION
 
-# Qt 6.8.3 iOS + macOS SDKs
+# Qt iOS + macOS SDKs (skip if you already have Qt installed)
 mkdir -p ~/dev/lib/Qt-6
-aqt install-qt mac ios 6.8.3 --outputdir ~/dev/lib/Qt-6
-aqt install-qt mac desktop 6.8.3 --outputdir ~/dev/lib/Qt-6
+aqt install-qt mac ios $QT_VERSION --outputdir ~/dev/lib/Qt-6
+aqt install-qt mac desktop $QT_VERSION --outputdir ~/dev/lib/Qt-6
 
-# CPython 3.13 iOS framework (pre-built CPython via PEP 730, no third-party code)
+# Point build scripts at your Qt install
+export QT_IOS="$HOME/dev/lib/Qt-6/$QT_VERSION/ios"
+# If you installed Qt via the Qt Maintenance Tool instead of aqtinstall:
+#   export QT_IOS="$HOME/Qt/$QT_VERSION/ios"
+
+# CPython 3.13 iOS framework (pre-built via PEP 730)
 mkdir -p build/python && curl -L https://github.com/beeware/Python-Apple-support/releases/download/3.13-b13/Python-3.13-iOS-support.b13.tar.gz | tar -xz -C build/python/
 
-# PySide6 sources
-git clone --branch v6.8.3 https://code.qt.io/pyside/pyside-setup.git build/pyside-setup
+# PySide6 sources (branch must match PYSIDE_VERSION)
+git clone --branch v$PYSIDE_VERSION https://code.qt.io/pyside/pyside-setup.git build/pyside-setup
 ```
 
 ### Build and deploy
 
-**Manual step** — Connect your iPhone via USB and trust the computer.
+**Manual step** — Connect your iPhone via USB, unlock it, and trust the
+computer.
 
 ```bash
 # Install the build tool
@@ -105,6 +121,9 @@ uv pip install -e .
 
 # Build QtRuntime.framework (~5 min first time)
 ./scripts/build_qtruntime.sh
+
+# Cross-compile support libraries: libshiboken6, libpyside6, libpysideqml (~2 min)
+./scripts/build_support_libs.sh
 
 # Cross-compile PySide6 modules (~10 min first time)
 for mod in QtCore QtGui QtWidgets QtNetwork QtQml QtQuick; do
@@ -146,6 +165,7 @@ Management > tap your developer profile > Trust.
 ```
 scripts/
   build_qtruntime.sh          Merge Qt static libs into QtRuntime.framework
+  build_support_libs.sh       Cross-compile libshiboken6, libpyside6, libpysideqml + shiboken wrapper
   build_pyside6_module.sh     Shiboken generation + cross-compile per module
   globalize_symbols.py        Clear N_PEXT bit for hidden-visibility re-export
 

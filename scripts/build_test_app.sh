@@ -10,7 +10,7 @@ set -euo pipefail
 
 RUN=false
 ARCH="x86_64"
-QT_IOS="$HOME/dev/lib/Qt-6/6.8.3/ios"
+: "${QT_IOS:=$HOME/dev/lib/Qt-6/6.8.3/ios}"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in

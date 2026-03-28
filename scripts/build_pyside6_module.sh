@@ -4,31 +4,19 @@ set -euo pipefail
 MODULE="${1:?Usage: $0 <ModuleName>}"
 MODULE_LOWER=$(echo "$MODULE" | tr '[:upper:]' '[:lower:]')
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-QT_IOS="$HOME/dev/lib/Qt-6/6.8.3/ios"
-QT_MACOS="$HOME/dev/lib/Qt-6/6.8.3/macos"
-PYSIDE_SRC="$ROOT/build/pyside-setup/sources/pyside6"
-PYSIDE6_SRC="$PYSIDE_SRC/PySide6"
-LIBSHIBOKEN_SRC="$ROOT/build/pyside-setup/sources/shiboken6/libshiboken"
-LIBPYSIDE_SRC="$PYSIDE_SRC/libpyside"
-LIBPYSIDEQML_SRC="$PYSIDE_SRC/libpysideqml"
+source "$(dirname "$0")/env.sh"
+
 SHIBOKEN6="$(python3 -c "import shiboken6_generator; print(shiboken6_generator.__path__[0])")/shiboken6"
-PYTHON_FW="$ROOT/build/python/Python.xcframework/ios-arm64/Python.framework"
 
-GEN_DIR="$ROOT/build/pyside6-ios-gen/PySide6/$MODULE"
-OBJ_DIR="$ROOT/build/${MODULE_LOWER}-ios"
-OUT_DIR="$ROOT/build/pyside6-ios-static"
-
-IOS_SDK="$(xcrun --sdk iphoneos --show-sdk-path)"
-CXX="xcrun -sdk iphoneos clang++"
+GEN_DIR="$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/$MODULE"
+OBJ_DIR="$P6IOS_ROOT/build/${MODULE_LOWER}-ios"
+OUT_DIR="$P6IOS_ROOT/build/pyside6-ios-static"
 
 CXXFLAGS=(-arch arm64 -std=c++17 -isysroot "$IOS_SDK" -miphoneos-version-min=16.0 \
     -iframework "$QT_IOS/lib" -I "$QT_IOS/include" \
-    -I "$QT_IOS/lib/QtCore.framework/Headers" \
-    -I "$QT_IOS/lib/QtCore.framework/Headers/6.8.3" \
-    -I "$QT_IOS/lib/QtCore.framework/Headers/6.8.3/QtCore" \
+    $(qt_header_flags QtCore) \
     -I "$PYTHON_FW/Headers" -I "$LIBSHIBOKEN_SRC" -I "$LIBPYSIDE_SRC" \
-    -I "$PYSIDE6_SRC" -I "$GEN_DIR" -I "$ROOT/build/pyside6-ios-gen/PySide6/QtCore" \
+    -I "$PYSIDE6_SRC" -I "$GEN_DIR" -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtCore" \
     -DQT_LEAN_HEADERS=1 -DQT_NO_DEBUG -O2 -fPIC)
 
 TYPESYSTEM_XML=""
@@ -46,63 +34,49 @@ case "$MODULE" in
     QtNetwork)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtNetwork/typesystem_network.xml"
         EXTRA_SHIBOKEN_FLAGS+=("--drop-type-entries=QDtls;QDtlsClientVerifier;QDtlsClientVerifier::GeneratorParameters;QDtlsError")
-        EXTRA_CXXFLAGS+=(-I "$QT_IOS/lib/QtNetwork.framework/Headers" \
-            -I "$QT_IOS/lib/QtNetwork.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtNetwork.framework/Headers/6.8.3/QtNetwork")
+        EXTRA_CXXFLAGS+=($(qt_header_flags QtNetwork))
         ;;
     QtGui)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtGui/typesystem_gui.xml"
         EXTRA_INCLUDE_DIRS+=("$GEN_DIR")
-        EXTRA_CXXFLAGS+=(-I "$QT_IOS/lib/QtGui.framework/Headers" \
-            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3/QtGui")
+        EXTRA_CXXFLAGS+=($(qt_header_flags QtGui))
         ;;
     QtQml)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtQml/typesystem_qml.xml"
-        EXTRA_INCLUDE_DIRS+=("$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" "$GEN_DIR" "$LIBPYSIDEQML_SRC")
+        EXTRA_INCLUDE_DIRS+=("$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" "$GEN_DIR" "$LIBPYSIDEQML_SRC")
         EXTRA_CXXFLAGS+=(-I "$LIBPYSIDEQML_SRC" -I "$PYSIDE6_SRC/QtQml" \
             -I "$QT_IOS/lib/QtNetwork.framework/Headers" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers/6.8.3/QtQml" \
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork")
+            $(qt_header_flags QtQml) \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork")
         EXTRA_SOURCES+=("$PYSIDE6_SRC/QtQml/pysideqmlvolatilebool.cpp")
         ;;
     QtQuick)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtQuick/typesystem_quick.xml"
         EXTRA_SHIBOKEN_FLAGS+=("--keywords=no_QtOpenGL")
-        EXTRA_INCLUDE_DIRS+=("$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
-            "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
-            "$ROOT/build/pyside6-ios-gen/PySide6/QtQml" "$GEN_DIR" "$LIBPYSIDEQML_SRC")
+        EXTRA_INCLUDE_DIRS+=("$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
+            "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtQml" "$GEN_DIR" "$LIBPYSIDEQML_SRC")
         EXTRA_CXXFLAGS+=(-I "$LIBPYSIDEQML_SRC" \
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtQml" \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtQml" \
             -I "$QT_IOS/lib/QtGui.framework/Headers" \
             -I "$QT_IOS/lib/QtNetwork.framework/Headers" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtQml.framework/Headers/6.8.3/QtQml" \
-            -I "$QT_IOS/lib/QtQuick.framework/Headers" \
-            -I "$QT_IOS/lib/QtQuick.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtQuick.framework/Headers/6.8.3/QtQuick" \
+            $(qt_header_flags QtQml) \
+            $(qt_header_flags QtQuick) \
             -I "$PYSIDE6_SRC/QtQuick")
         EXTRA_SOURCES+=("$PYSIDE6_SRC/QtQuick/pysidequickregistertype.cpp")
         ;;
     QtWidgets)
         TYPESYSTEM_XML="$PYSIDE6_SRC/QtWidgets/typesystem_widgets.xml"
-        EXTRA_INCLUDE_DIRS+=("$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
-            "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" "$GEN_DIR")
+        EXTRA_INCLUDE_DIRS+=("$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtGui" "$GEN_DIR")
         EXTRA_CXXFLAGS+=(\
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
-            -I "$ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
-            -I "$QT_IOS/lib/QtGui.framework/Headers" \
-            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtGui.framework/Headers/6.8.3/QtGui" \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtGui" \
+            -I "$P6IOS_ROOT/build/pyside6-ios-gen/PySide6/QtNetwork" \
+            $(qt_header_flags QtGui) \
             -I "$QT_IOS/lib/QtNetwork.framework/Headers" \
-            -I "$QT_IOS/lib/QtWidgets.framework/Headers" \
-            -I "$QT_IOS/lib/QtWidgets.framework/Headers/6.8.3" \
-            -I "$QT_IOS/lib/QtWidgets.framework/Headers/6.8.3/QtWidgets")
+            $(qt_header_flags QtWidgets))
         ;;
     *) echo "Unknown module: $MODULE"; exit 1 ;;
 esac
@@ -111,11 +85,11 @@ esac
 SBKVERSION_H="$LIBSHIBOKEN_SRC/sbkversion.h"
 if [ ! -f "$SBKVERSION_H" ]; then
     echo "==> Generating sbkversion.h from template"
-    PYVER=$(grep "^Python version:" "$ROOT/build/python/VERSIONS" | sed 's/Python version: //')
+    PYVER=$(grep "^Python version:" "$P6IOS_ROOT/build/python/VERSIONS" | sed 's/Python version: //')
     PY_MAJOR=${PYVER%%.*}; PYREST=${PYVER#*.}; PY_MINOR=${PYREST%%.*}; PY_PATCH=${PYREST#*.}; PY_PATCH=${PY_PATCH%% *}
-    sed -e "s/@shiboken_MAJOR_VERSION@/6/g" \
-        -e "s/@shiboken_MINOR_VERSION@/8/g" \
-        -e "s/@shiboken_MICRO_VERSION@/3/g" \
+    sed -e "s/@shiboken_MAJOR_VERSION@/$SHIBOKEN_MAJOR/g" \
+        -e "s/@shiboken_MINOR_VERSION@/$SHIBOKEN_MINOR/g" \
+        -e "s/@shiboken_MICRO_VERSION@/$SHIBOKEN_MICRO/g" \
         -e "s/@Python_VERSION_MAJOR@/$PY_MAJOR/g" \
         -e "s/@Python_VERSION_MINOR@/$PY_MINOR/g" \
         -e "s/@Python_VERSION_PATCH@/$PY_PATCH/g" \
@@ -124,7 +98,7 @@ fi
 
 # Phase 1: Global header
 echo "==> Phase 1: Generating ${MODULE}_global.h"
-GLOBAL_H="$ROOT/build/pyside6-ios-gen/${MODULE}_global.h"
+GLOBAL_H="$P6IOS_ROOT/build/pyside6-ios-gen/${MODULE}_global.h"
 mkdir -p "$(dirname "$GLOBAL_H")"
 cat > "$GLOBAL_H" << 'GHEOF'
 #include <QtCore/qnamespace.h>
@@ -143,20 +117,21 @@ SHIBOKEN_INCLUDES="$PYSIDE6_SRC:$QT_MACOS/include"
 for dep in QtCore QtGui QtWidgets QtNetwork QtQml QtQuick QtOpenGL; do
     FW="$QT_MACOS/lib/$dep.framework/Headers"
     [ -d "$FW" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW"
-    [ -d "$FW/6.8.3" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW/6.8.3"
-    [ -d "$FW/6.8.3/$dep" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW/6.8.3/$dep"
+    [ -d "$FW/$QT_VERSION" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW/$QT_VERSION"
+    [ -d "$FW/$QT_VERSION/$dep" ] && SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$FW/$QT_VERSION/$dep"
 done
 for d in "${EXTRA_INCLUDE_DIRS[@]+"${EXTRA_INCLUDE_DIRS[@]}"}"; do
     SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$d"
 done
 SHIBOKEN_INCLUDES="$SHIBOKEN_INCLUDES:$LIBPYSIDE_SRC:$LIBSHIBOKEN_SRC:$LIBPYSIDEQML_SRC"
 
+API_VERSION="${SHIBOKEN_MAJOR}.${SHIBOKEN_MINOR}"
 "$SHIBOKEN6" --enable-pyside-extensions \
     "--include-paths=$SHIBOKEN_INCLUDES" \
     "--typesystem-paths=$PYSIDE6_SRC:$PYSIDE6_SRC/templates" \
-    "--output-directory=$ROOT/build/pyside6-ios-gen" \
+    "--output-directory=$P6IOS_ROOT/build/pyside6-ios-gen" \
     "--license-file=$PYSIDE6_SRC/licensecomment.txt" \
-    --lean-headers "--api-version=6.8" "--platform=darwin" \
+    --lean-headers "--api-version=$API_VERSION" "--platform=darwin" \
     "--framework-include-paths=$QT_MACOS/lib" \
     "${EXTRA_SHIBOKEN_FLAGS[@]+"${EXTRA_SHIBOKEN_FLAGS[@]}"}" \
     "$GLOBAL_H" "$TYPESYSTEM_XML" 2>&1
@@ -166,6 +141,14 @@ echo "    Generated $WRAPPER_COUNT wrapper files"
 [ "$WRAPPER_COUNT" -eq 0 ] && { echo "ERROR: No wrappers!"; exit 1; }
 
 # Phase 2b: iOS patches
+
+# Module name must be "PySide6.QtFoo" for type resolution (not just "QtFoo")
+MODULE_WRAPPER="$GEN_DIR/${MODULE_LOWER}_module_wrapper.cpp"
+if [ -f "$MODULE_WRAPPER" ] && grep -q "\"$MODULE\"" "$MODULE_WRAPPER"; then
+    echo "    Patching module name: $MODULE -> PySide6.$MODULE"
+    sed -i '' "s|/\* m_name     \*/ \"$MODULE\"|/* m_name     */ \"PySide6.$MODULE\"|" "$MODULE_WRAPPER"
+fi
+
 if [ "$MODULE" = "QtNetwork" ]; then
     SSLCONF="$GEN_DIR/qsslconfiguration_wrapper.cpp"
     if [ -f "$SSLCONF" ] && grep -q "defaultDtlsConfiguration" "$SSLCONF"; then
@@ -188,7 +171,6 @@ if [ "$MODULE" = "QtWidgets" ]; then
         python3 -c "
 import re
 with open('$QMENU') as f: code = f.read()
-# Remove the setAsDockMenu method body and method table entry
 code = re.sub(r'static PyObject \*Sbk_QMenuFunc_setAsDockMenu\(.*?\n\}\n', '', code, flags=re.DOTALL)
 code = re.sub(r'.*Sbk_QMenuFunc_setAsDockMenu.*\n', '', code)
 with open('$QMENU','w') as f: f.write(code)

@@ -7,6 +7,13 @@ uv.lock
 __pycache__/
 *.pyc
 
+# Compiled objects and archives (in any directory)
+*.o
+*.a
+
+# Generated build info
+**/build_info.py
+
 # macOS
 .DS_Store
 

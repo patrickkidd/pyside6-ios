@@ -13,7 +13,7 @@ set -euo pipefail
 
 ARCH="arm64"
 SIMULATOR=false
-QT_IOS="$HOME/dev/lib/Qt-6/6.8.3/ios"
+: "${QT_IOS:=$HOME/dev/lib/Qt-6/6.8.3/ios}"
 BUILD_DIR="build/qtruntime"
 OUTPUT="build/QtRuntime.framework"
 
@@ -33,6 +33,9 @@ else
     SDK_NAME="iphoneos"
     MIN_VERSION_FLAG="-miphoneos-version-min=16.0"
 fi
+
+[ -d "$QT_IOS/lib/QtCore.framework" ] || { echo "ERROR: QT_IOS not found: $QT_IOS" >&2; exit 1; }
+QT_VERSION=$(basename "$(ls -d "$QT_IOS/lib/QtCore.framework/Headers"/[0-9]* 2>/dev/null | head -1)")
 
 SDK=$(xcrun --sdk "$SDK_NAME" --show-sdk-path)
 CC=$(xcrun --sdk "$SDK_NAME" --find clang++)
@@ -93,6 +96,12 @@ PLUGINS=(
     plugins/tls/libqsecuretransportbackend.a
     plugins/sqldrivers/libqsqlite.a
     plugins/networkinformation/libqscnetworkreachability.a
+    plugins/permissions/libqdarwincamerapermission.a
+    plugins/permissions/libqdarwincalendarpermission.a
+    plugins/permissions/libqdarwincontactspermission.a
+    plugins/permissions/libqdarwinbluetoothpermission.a
+    plugins/permissions/libqdarwinmicrophonepermission.a
+    plugins/permissions/libqdarwinlocationpermission.a
 )
 
 for plugin in "${PLUGINS[@]}"; do
@@ -176,7 +185,7 @@ cat > "$OUTPUT/Info.plist" << 'PLIST'
   <key>CFBundleExecutable</key>
   <string>QtRuntime</string>
   <key>CFBundleVersion</key>
-  <string>6.8.3</string>
+  <string>$QT_VERSION</string>
   <key>CFBundlePackageType</key>
   <string>FMWK</string>
   <key>MinimumOSVersion</key>
